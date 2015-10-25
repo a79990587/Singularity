@@ -1,1 +1,2 @@
-# Infinity-Studio-Source
+# InfinityStudioSingularity
+
