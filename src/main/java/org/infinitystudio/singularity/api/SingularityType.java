@@ -27,11 +27,11 @@ enum SingularityNodeType {
     RECOVERY, //恢复
 }
 
-enum SongularityCeremonyType {
+enum SingularityCeremonyType {
 
 }
 
-enum SongularityOriginCoreType {
+enum SingularityOriginCoreType {
     COMMON,  //普遍
     RARE,    //稀有
     EPIC,    //史诗

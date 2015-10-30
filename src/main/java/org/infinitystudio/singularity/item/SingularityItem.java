@@ -30,7 +30,7 @@ public abstract class SingularityItem extends Item {
 
     /**
      * Instance a Singularity Item.
-     * @param name the item's name
+     * @param name The name of the item
      */
     public SingularityItem(String name) {
         this.name = name;

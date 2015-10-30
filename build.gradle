@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             name = "oschina"
             url = "http://maven.oschina.net/content/groups/public/"

@@ -16,52 +16,34 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *  @license GPLv3
 */
-package org.infinitystudio.singularity.api;
+package org.infinitystudio.singularity.api.recipe;
 
 import net.minecraft.item.ItemStack;
 
 /**
- * Craft Recipes.
+ * Craft recipes.
  * @author Lasm_Gratel
- *
  */
 public class SingularityRecipe {
 
-    /**
-     * @id   "系统分配 合成表唯一ID"
-     * @in   "输入的物品"
-     * @out  "输出的物品"
-     * @cost "能量消耗"
-     * @type "机器种类"
-     */
-
+    // 系统分配 合成表唯一ID
     private int id;
+    // 输入的物品
     private ItemStack[] in;
+    // 输出的物品
     private ItemStack[] out;
-    private int cost;
-    private Class type;
 
-    public SingularityRecipe(ItemStack[] in, ItemStack[] out, int cost, Class type) {
+    public SingularityRecipe(ItemStack[] in, ItemStack[] out) {
         this.in = in;
         this.out = out;
-        this.cost = cost;
-        this.type = type;
-    }
-
-    public Class getType() {
-        return type;
     }
 
     public ItemStack[] getOut() {
         return out;
     }
 
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
+    public void setOut(ItemStack[] out) {
+        this.out = out;
     }
 
     public ItemStack[] getIn() {

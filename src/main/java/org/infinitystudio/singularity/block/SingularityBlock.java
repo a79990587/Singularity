@@ -31,8 +31,8 @@ public abstract class SingularityBlock extends Block {
 
     /**
      * Instance a block.
-     * @param materialName
-     * @param name
+     * @param material The material
+     * @param name The name of the block
      */
     public SingularityBlock(Material material, String name) {
         super(material);

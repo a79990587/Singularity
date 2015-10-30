@@ -18,6 +18,7 @@
 */
 package org.infinitystudio.singularity.api;
 
+import org.infinitystudio.singularity.api.recipe.SingularityRecipe;
 import org.infinitystudio.singularity.api.recipe.SingularityRecipeHandler;
 import org.infinitystudio.singularity.block.SingularityBlock;
 import org.infinitystudio.singularity.item.SingularityItem;

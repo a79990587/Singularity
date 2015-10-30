@@ -42,6 +42,6 @@ public class Singularity {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-	
+
     }
 }

@@ -20,53 +20,44 @@ package org.infinitystudio.singularity.api.recipe;
 
 import net.minecraft.item.ItemStack;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import org.infinitystudio.singularity.api.SingularityRecipe;
-
 import com.google.common.collect.Maps;
+import org.infinitystudio.singularity.api.recipe.tech.TechbenchRecipe;
+import org.infinitystudio.singularity.api.recipe.tech.TechbenchRecipeHandler;
 
 /**
  * Craft progress class.
  */
 public class SingularityRecipeHandler {
-    public static int totalRecipeId = 0;
+    public int totalRecipeId = 0;
 
-    private static Map<ItemStack[], SingularityRecipe> recipeList = Maps.newHashMap();
+    private Map<ItemStack[], SingularityRecipe> recipeList = Maps.newHashMap();
 
-    public static boolean addRecipe(SingularityRecipe singularityRecipe) {
-        if (recipeList.containsKey(singularityRecipe.getIn())) {
-            return false;
-        }
-        singularityRecipe.setID(SingularityRecipeHandler.totalRecipeId);
+    public boolean addRecipe(SingularityRecipe singularityRecipe) {
+        if (recipeList.containsKey(singularityRecipe.getIn())) return false;
+
+        singularityRecipe.setID(this.totalRecipeId);
         recipeList.put(singularityRecipe.getIn(), singularityRecipe);
-        SingularityRecipeHandler.totalRecipeId++;
+        this.totalRecipeId++;
         return true;
-
     }
 
-    public static SingularityRecipe getRecipe(ItemStack[] in) {
-        if (recipeList.containsKey(in)) {
-            SingularityRecipe Result = recipeList.get(in);
-        }
+    public SingularityRecipe getRecipe(ItemStack[] in) {
+        if (recipeList.containsKey(in)) return recipeList.get(in);
         return null;
     }
 
-    public static SingularityRecipe getRecipeById(int id) {
-        if (SingularityRecipeHandler.totalRecipeId < id) {
-            return null;
-        }
+    public SingularityRecipe getRecipeById(int id) {
+        if (this.totalRecipeId < id) return null;
 
-        for (Map.Entry<ItemStack[], SingularityRecipe> r : recipeList.entrySet()) {
-            if (r.getValue().getID() == id) {
+        for (Map.Entry<ItemStack[], SingularityRecipe> r : recipeList.entrySet())
+            if (r.getValue().getID() == id)
                 return r.getValue();
-            }
-        }
         return null;
     }
 
-    public static SingularityRecipe[] getAllRecipes() {
-        return ((SingularityRecipe[]) recipeList.values().toArray());
+    public SingularityRecipe[] getAllRecipes() {
+        return (SingularityRecipe[]) recipeList.values().toArray();
     }
 }
