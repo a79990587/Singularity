@@ -16,23 +16,20 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *  @license GPLv3
  */
-package org.infinitystudio.singularity.api.recipe.tech
+package org.infinitystudio.singularity.api.recipe.workbench
 
-import net.minecraft.item.ItemStack
-import org.infinitystudio.singularity.api.recipe.{CommonRecipe, CommonRecipeHandler}
+import cpw.mods.fml.common.registry.GameRegistry
 
 /**
- * Techbench craft recipes handler.
+ * Workbench craft recipes handler.
  * @author Blealtan
  */
-class TechbenchRecipeHandler {
-  val singularityRecipeHandler: CommonRecipeHandler = new CommonRecipeHandler
-
-  def addRecipe(techbenchRecipe: TechbenchRecipe) = singularityRecipeHandler.addRecipe(techbenchRecipe.asInstanceOf[CommonRecipe])
-
-  def getRecipe(itemStack: Array[ItemStack]) = singularityRecipeHandler.getRecipe(itemStack).asInstanceOf[TechbenchRecipe]
-
-  def getRecipeById(id: Int) = singularityRecipeHandler.getRecipeById(id).asInstanceOf[TechbenchRecipe]
-
-  def getAllRecipes = singularityRecipeHandler.getAllRecipes
+class WorkbenchRecipeHandler {
+  def addRecipe(workbenchRecipe: WorkbenchRecipe) = {
+    if (!workbenchRecipe.available) false
+    else {
+      GameRegistry.addRecipe(workbenchRecipe.outItemStack, workbenchRecipe.inPresentationObjects:_*)
+      true
+    }
+  }
 }

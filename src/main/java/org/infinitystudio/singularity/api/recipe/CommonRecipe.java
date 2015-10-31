@@ -24,7 +24,7 @@ import net.minecraft.item.ItemStack;
  * Craft recipes.
  * @author Lasm_Gratel
  */
-public class SingularityRecipe {
+public class CommonRecipe {
 
     // 系统分配 合成表唯一ID
     private int id;
@@ -33,9 +33,12 @@ public class SingularityRecipe {
     // 输出的物品
     private ItemStack[] out;
 
-    public SingularityRecipe(ItemStack[] in, ItemStack[] out) {
+    protected boolean available;
+
+    public CommonRecipe(ItemStack[] in, ItemStack[] out) {
         this.in = in;
         this.out = out;
+        available = true;
     }
 
     public ItemStack[] getOut() {

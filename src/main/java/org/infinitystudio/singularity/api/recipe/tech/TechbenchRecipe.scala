@@ -19,14 +19,14 @@
 package org.infinitystudio.singularity.api.recipe.tech
 
 import net.minecraft.item.ItemStack
-import org.infinitystudio.singularity.api.recipe.SingularityRecipe
+import org.infinitystudio.singularity.api.recipe.CommonRecipe
 
 /**
  * Techbench craft recipes.
  * @author Blealtan
  */
 class TechbenchRecipe(in: Array[ItemStack], out: Array[ItemStack], cost: Int)
-  extends SingularityRecipe(in: Array[ItemStack], out: Array[ItemStack]) {
+  extends CommonRecipe(in: Array[ItemStack], out: Array[ItemStack]) {
 
   var Cost : Int = cost
 

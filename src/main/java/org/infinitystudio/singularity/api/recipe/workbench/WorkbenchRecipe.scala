@@ -16,14 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block
+package org.infinitystudio.singularity.api.recipe.workbench
 
-import net.minecraft.block.material.Material
+import net.minecraft.item.ItemStack
+import org.infinitystudio.singularity.api.recipe.CommonRecipe
 
 /**
- * Techbench Block.
+ * Techbench craft recipes.
  * @author Blealtan
  */
-object TechbenchBlock extends SingularityBlock(Material.rock, "techbench") {
+class WorkbenchRecipe(out: ItemStack, in: Object*)
+  extends CommonRecipe(null, null) {
+
+  var inPresentationObjects = in
+  var outItemStack = out
 
 }

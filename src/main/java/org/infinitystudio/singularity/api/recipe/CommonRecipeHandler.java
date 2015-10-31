@@ -23,41 +23,39 @@ import net.minecraft.item.ItemStack;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
-import org.infinitystudio.singularity.api.recipe.tech.TechbenchRecipe;
-import org.infinitystudio.singularity.api.recipe.tech.TechbenchRecipeHandler;
 
 /**
  * Craft progress class.
  */
-public class SingularityRecipeHandler {
+public class CommonRecipeHandler {
     public int totalRecipeId = 0;
 
-    private Map<ItemStack[], SingularityRecipe> recipeList = Maps.newHashMap();
+    private Map<ItemStack[], CommonRecipe> recipeList = Maps.newHashMap();
 
-    public boolean addRecipe(SingularityRecipe singularityRecipe) {
-        if (recipeList.containsKey(singularityRecipe.getIn())) return false;
+    public boolean addRecipe(CommonRecipe commonRecipe) {
+        if (recipeList.containsKey(commonRecipe.getIn()) || !commonRecipe.available) return false;
 
-        singularityRecipe.setID(this.totalRecipeId);
-        recipeList.put(singularityRecipe.getIn(), singularityRecipe);
+        commonRecipe.setID(this.totalRecipeId);
+        recipeList.put(commonRecipe.getIn(), commonRecipe);
         this.totalRecipeId++;
         return true;
     }
 
-    public SingularityRecipe getRecipe(ItemStack[] in) {
+    public CommonRecipe getRecipe(ItemStack[] in) {
         if (recipeList.containsKey(in)) return recipeList.get(in);
         return null;
     }
 
-    public SingularityRecipe getRecipeById(int id) {
+    public CommonRecipe getRecipeById(int id) {
         if (this.totalRecipeId < id) return null;
 
-        for (Map.Entry<ItemStack[], SingularityRecipe> r : recipeList.entrySet())
+        for (Map.Entry<ItemStack[], CommonRecipe> r : recipeList.entrySet())
             if (r.getValue().getID() == id)
                 return r.getValue();
         return null;
     }
 
-    public SingularityRecipe[] getAllRecipes() {
-        return (SingularityRecipe[]) recipeList.values().toArray();
+    public CommonRecipe[] getAllRecipes() {
+        return (CommonRecipe[]) recipeList.values().toArray();
     }
 }
