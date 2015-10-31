@@ -18,12 +18,24 @@
  */
 package org.infinitystudio.singularity.api;
 
+import java.util.List;
+
+import org.infinitystudio.singularity.block.MachineBlock;
+
+import com.google.common.collect.Lists;
+
 /**
  * Energy part for Singularity.
  * 
  * @author Darkhighness
+ * @author Lasm_Gratel
  *
  */
 public class SingularityEnergy
 {
+    private static List<MachineBlock> machines = Lists.newArrayList();
+    public static void registerMachine(MachineBlock block)
+    {
+	machines.add(block);
+    }
 }
