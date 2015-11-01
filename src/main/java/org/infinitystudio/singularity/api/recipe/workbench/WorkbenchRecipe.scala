@@ -26,7 +26,7 @@ import org.infinitystudio.singularity.api.recipe.CommonRecipe
  * @author Blealtan
  */
 class WorkbenchRecipe(out: ItemStack, in: Object*)
-    extends CommonRecipe(null, null) {
+  extends CommonRecipe(null, null) {
 
   var inPresentationObjects = in
   var outItemStack = out

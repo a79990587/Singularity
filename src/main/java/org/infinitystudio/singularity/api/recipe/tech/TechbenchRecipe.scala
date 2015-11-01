@@ -26,11 +26,12 @@ import org.infinitystudio.singularity.api.recipe.CommonRecipe
  * @author Blealtan
  */
 class TechbenchRecipe(in: Array[ItemStack], out: Array[ItemStack], cost: Int)
-    extends CommonRecipe(in: Array[ItemStack], out: Array[ItemStack]) {
+  extends CommonRecipe(in: Array[ItemStack], out: Array[ItemStack]) {
 
   var Cost: Int = cost
 
   def getCost: Int = Cost
+
   def setCost(_cost: Int): Unit = Cost = _cost
 
 }

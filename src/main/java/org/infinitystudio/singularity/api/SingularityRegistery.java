@@ -32,67 +32,57 @@ import org.infinitystudio.singularity.item.SingularityItem;
 
 /**
  * The Singularity Mod's Registery.
- * 
- * @author Darkhighness
  *
+ * @author Darkhighness
  */
-public class SingularityRegistery extends GameRegistry
-{
-
-    /**
-     * To register an ingot with OreDictionary.
-     * 
-     * @param Ingot
-     *            The object to be registered.
-     */
-    public static void registerIngotWithOreDictionary(SingularityItem Ingot)
-    {
-	OreDictionary.registerOre(Ingot.getName(), Ingot);
-    }
-
-    /**
-     * To register an block with OreDictionary.
-     * 
-     * @param Block
-     *            The object to be registered.
-     */
-    public static void registerBlockWithOreDictionary(SingularityBlock Block)
-    {
-	OreDictionary.registerOre(Block.getName(), Block);
-    }
+public class SingularityRegistery extends GameRegistry {
 
     private static TechbenchRecipeHandler techbenchRecipeHandler = new TechbenchRecipeHandler();
     private static WorkbenchRecipeHandler workbenchRecipeHandler = new WorkbenchRecipeHandler();
     private static CommonRecipeHandler commonRecipeHandler = new CommonRecipeHandler();
 
     /**
-     * To register a recipe.
-     * 
-     * @param commonRecipe
-     *            The recipe object to be registered.
-     * @return Whether the registration is succeeded (fail if and only if there
-     *         are conflict recipes).
+     * To register an ingot with OreDictionary.
+     *
+     * @param Ingot The object to be registered.
      */
-    public static boolean registerRecipe(CommonRecipe commonRecipe)
-    {
-	if (commonRecipe instanceof WorkbenchRecipe)
-	    return workbenchRecipeHandler.addRecipe((WorkbenchRecipe) commonRecipe);
-	else if (commonRecipe instanceof TechbenchRecipe)
-	    return techbenchRecipeHandler.addRecipe((TechbenchRecipe) commonRecipe);
-	else
-	    return commonRecipeHandler.addRecipe(commonRecipe);
+    public static void registerIngotWithOreDictionary(SingularityItem Ingot) {
+        OreDictionary.registerOre(Ingot.getName(), Ingot);
+    }
+
+    /**
+     * To register an block with OreDictionary.
+     *
+     * @param Block The object to be registered.
+     */
+    public static void registerBlockWithOreDictionary(SingularityBlock Block) {
+        OreDictionary.registerOre(Block.getName(), Block);
+    }
+
+    /**
+     * To register a recipe.
+     *
+     * @param commonRecipe The recipe object to be registered.
+     * @return Whether the registration is succeeded (fail if and only if there
+     * are conflict recipes).
+     */
+    public static boolean registerRecipe(CommonRecipe commonRecipe) {
+        if (commonRecipe instanceof WorkbenchRecipe)
+            return workbenchRecipeHandler.addRecipe((WorkbenchRecipe) commonRecipe);
+        else if (commonRecipe instanceof TechbenchRecipe)
+            return techbenchRecipeHandler.addRecipe((TechbenchRecipe) commonRecipe);
+        else
+            return commonRecipeHandler.addRecipe(commonRecipe);
     }
 
     /**
      * To get the possible recipe for the input items.
-     * 
-     * @param itemIn
-     *            The item used in the recipe.
+     *
+     * @param itemIn The item used in the recipe.
      * @return The recipe object.
      */
-    public static TechbenchRecipe getTechbenchRecipe(ItemStack[] itemIn)
-    {
-	return techbenchRecipeHandler.getRecipe(itemIn);
+    public static TechbenchRecipe getTechbenchRecipe(ItemStack[] itemIn) {
+        return techbenchRecipeHandler.getRecipe(itemIn);
     }
 
 }

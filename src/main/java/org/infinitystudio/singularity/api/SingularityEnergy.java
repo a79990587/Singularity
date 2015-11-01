@@ -1,72 +1,57 @@
 /**
  * Singularity Mod for Minecraft. Copyright (C) 2015 Infinity Studio.
- *
+ * <p/>
  * This program is free software: you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation, either version 3 of the License, or (at your option) any later
  * version.
- * 
+ * <p/>
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ * <p/>
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * @license GPLv3
  */
 package org.infinitystudio.singularity.api;
 
-import java.util.List;
-
+import com.google.common.collect.Lists;
 import org.infinitystudio.singularity.Singularity;
 import org.infinitystudio.singularity.block.MachineBlock;
 
-import com.google.common.collect.Lists;
+import java.util.List;
 
 /**
  * Energy part for Singularity.
- * 
+ *
  * @author Darkhighness
  * @author Lasm_Gratel
- *
  */
-public class SingularityEnergy
-{
+public class SingularityEnergy {
     private static List<Thread> threads = Lists.newArrayList();
     private static List<MachineBlock> machines = Lists.newArrayList();
     private static int energy = 0;
 
-    public static void registerMachine(final MachineBlock block)
-    {
-	machines.add(block);
-	if (block.isOutputOrInput())
-	{
-	    energy-=block.getEnergy();
-	}
-	else
-	{
-	    threads.add(new Thread(){
-
-		@Override
-		public void run()
-		{
-		    while(block.isCanProduce())
-		    {
-			energy+=block.getEnergy();
-			try
-			{
-			    this.sleep(1/20/1000);
-			}
-			catch (InterruptedException e)
-			{
-			    Singularity.log.error(e);
-			}
-		    }
-		}
-		
-	    });
-	}
+    public static void registerMachine(final MachineBlock block) {
+        machines.add(block);
+        if (block.isOutputOrInput())
+            energy -= block.getEnergy();
+        else
+            threads.add(new Thread() {
+                @Override
+                public void run() {
+                    while (block.isCanProduce()) {
+                        energy += block.getEnergy();
+                        try {
+                            this.sleep(1 / 20 / 1000);
+                        } catch (InterruptedException e) {
+                            Singularity.log.error(e);
+                        }
+                    }
+                }
+            });
     }
 }
