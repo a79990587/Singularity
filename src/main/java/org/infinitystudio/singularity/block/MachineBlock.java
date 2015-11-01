@@ -30,7 +30,8 @@ public abstract class MachineBlock extends SingularityBlock
     private int produceEnergy = -1;
     private int consumeEnergy = -1;
     private int storageEnergy = 0;
-    private boolean outputOrInput;
+    private boolean outputOrInput = true;
+    private boolean canProduce = false;
 
     /**
      * Instance a block.
@@ -104,5 +105,37 @@ public abstract class MachineBlock extends SingularityBlock
     public void delStorageEnergy(int storageEnergy)
     {
 	this.storageEnergy -= storageEnergy;
+    }
+
+    /**
+     * @return outputOrInput
+     */
+    public boolean isOutputOrInput()
+    {
+        return outputOrInput;
+    }
+
+    /**
+     * @param outputOrInput 要设置的 outputOrInput
+     */
+    public void setOutputOrInput(boolean outputOrInput)
+    {
+        this.outputOrInput = outputOrInput;
+    }
+
+    /**
+     * @return canProduce
+     */
+    public boolean isCanProduce()
+    {
+        return canProduce;
+    }
+
+    /**
+     * @param canProduce 要设置的 canProduce
+     */
+    public void setCanProduce(boolean canProduce)
+    {
+        this.canProduce = canProduce;
     }
 }

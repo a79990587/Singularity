@@ -20,6 +20,7 @@ package org.infinitystudio.singularity.api;
 
 import java.util.List;
 
+import org.infinitystudio.singularity.Singularity;
 import org.infinitystudio.singularity.block.MachineBlock;
 
 import com.google.common.collect.Lists;
@@ -33,9 +34,39 @@ import com.google.common.collect.Lists;
  */
 public class SingularityEnergy
 {
+    private static List<Thread> threads = Lists.newArrayList();
     private static List<MachineBlock> machines = Lists.newArrayList();
-    public static void registerMachine(MachineBlock block)
+    private static int energy = 0;
+
+    public static void registerMachine(final MachineBlock block)
     {
 	machines.add(block);
+	if (block.isOutputOrInput())
+	{
+	    energy-=block.getEnergy();
+	}
+	else
+	{
+	    threads.add(new Thread(){
+
+		@Override
+		public void run()
+		{
+		    while(block.isCanProduce())
+		    {
+			energy+=block.getEnergy();
+			try
+			{
+			    this.sleep(1/20/1000);
+			}
+			catch (InterruptedException e)
+			{
+			    Singularity.log.error(e);
+			}
+		    }
+		}
+		
+	    });
+	}
     }
 }
