@@ -18,6 +18,8 @@
  */
 package org.infinitystudio.singularity.block;
 
+import org.infinitystudio.singularity.api.Energy;
+
 import net.minecraft.block.material.Material;
 
 /**
@@ -25,11 +27,11 @@ import net.minecraft.block.material.Material;
  *
  */
 public abstract class MachineBlock extends SingularityBlock {
-    private int produceEnergy = -1;
-    private int consumeEnergy = -1;
-    private int storageEnergy = 0;
-    private boolean outputOrInput = true;
-    private boolean canProduce = false;
+    private Energy produceEnergy;
+    private Energy consumeEnergy;
+    private Energy storageEnergy;
+    private boolean outputOrInput;
+    private boolean canProduce;
 
     /**
      * Instance a block.
@@ -43,7 +45,7 @@ public abstract class MachineBlock extends SingularityBlock {
      * @param outputOrInput
      *            Whether this machine produce energy or consume energy?
      */
-    public MachineBlock(Material material, String name, int energy, boolean outputOrInput) {
+    public MachineBlock(Material material, String name, Energy energy, boolean outputOrInput) {
         super(material, name);
         if (outputOrInput)
             produceEnergy = energy;
@@ -52,14 +54,14 @@ public abstract class MachineBlock extends SingularityBlock {
         this.outputOrInput = outputOrInput;
     }
 
-    public int getEnergy() {
+    public Energy getEnergy() {
         if (outputOrInput)
             return produceEnergy;
         else
             return consumeEnergy;
     }
 
-    public void setEnergy(int energy, boolean outputOrInput) {
+    public void setEnergy(Energy energy, boolean outputOrInput) {
         if (outputOrInput)
             produceEnergy = energy;
         else
@@ -70,7 +72,7 @@ public abstract class MachineBlock extends SingularityBlock {
     /**
      * @return storageEnergy
      */
-    public int getStorageEnergy() {
+    public Energy getStorageEnergy() {
         return storageEnergy;
     }
 
@@ -78,7 +80,7 @@ public abstract class MachineBlock extends SingularityBlock {
      * @param storageEnergy
      *            要设置的 storageEnergy
      */
-    public void setStorageEnergy(int storageEnergy) {
+    public void setStorageEnergy(Energy storageEnergy) {
         this.storageEnergy = storageEnergy;
     }
 
@@ -86,16 +88,16 @@ public abstract class MachineBlock extends SingularityBlock {
      * @param storageEnergy
      *            要增加的 storageEnergy
      */
-    public void addStorageEnergy(int storageEnergy) {
-        this.storageEnergy += storageEnergy;
+    public void addStorageEnergy(Energy storageEnergy) {
+        this.storageEnergy.setEnergy(storageEnergy.getEnergy()+this.storageEnergy.getEnergy());
     }
 
     /**
      * @param storageEnergy
      *            要減少的 storageEnergy
      */
-    public void delStorageEnergy(int storageEnergy) {
-        this.storageEnergy -= storageEnergy;
+    public void delStorageEnergy(Energy storageEnergy) {
+	this.storageEnergy.setEnergy(this.storageEnergy.getEnergy()-storageEnergy.getEnergy());
     }
 
     /**

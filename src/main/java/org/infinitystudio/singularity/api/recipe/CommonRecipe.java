@@ -41,27 +41,46 @@ public class CommonRecipe {
         available = true;
     }
 
-    public ItemStack[] getOut() {
-        return out;
+    /**
+     * @return id
+     */
+    public int getId() {
+        return id;
     }
 
-    public void setOut(ItemStack[] out) {
-        this.out = out;
+    /**
+     * @param id 要设置的 id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
+    /**
+     * @return in
+     */
     public ItemStack[] getIn() {
         return in;
     }
 
+    /**
+     * @param in 要设置的 in
+     */
     public void setIn(ItemStack[] in) {
         this.in = in;
     }
 
-    public int getID() {
-        return id;
+    /**
+     * @return out
+     */
+    public ItemStack[] getOut() {
+        return out;
     }
 
-    public void setID(int ID) {
-        this.id = ID;
+    /**
+     * @param out 要设置的 out
+     */
+    public void setOut(ItemStack[] out) {
+        this.out = out;
     }
+    
 }

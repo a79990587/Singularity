@@ -36,22 +36,6 @@ public class SingularityEnergy {
     private static int energy = 0;
 
     public static void registerMachine(final MachineBlock block) {
-        machines.add(block);
-        if (block.isOutputOrInput())
-            energy -= block.getEnergy();
-        else
-            threads.add(new Thread() {
-                @Override
-                public void run() {
-                    while (block.isCanProduce()) {
-                        energy += block.getEnergy();
-                        try {
-                            this.sleep(1 / 20 / 1000);
-                        } catch (InterruptedException e) {
-                            Singularity.log.error(e);
-                        }
-                    }
-                }
-            });
+        
     }
 }

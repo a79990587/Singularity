@@ -35,7 +35,7 @@ public class CommonRecipeHandler {
         if (recipeList.containsKey(commonRecipe.getIn()) || !commonRecipe.available)
             return false;
 
-        commonRecipe.setID(this.totalRecipeId);
+        commonRecipe.setId(this.totalRecipeId);
         recipeList.put(commonRecipe.getIn(), commonRecipe);
         this.totalRecipeId++;
         return true;
@@ -52,7 +52,7 @@ public class CommonRecipeHandler {
             return null;
 
         for (Map.Entry<ItemStack[], CommonRecipe> r : recipeList.entrySet())
-            if (r.getValue().getID() == id)
+            if (r.getValue().getId() == id)
                 return r.getValue();
         return null;
     }

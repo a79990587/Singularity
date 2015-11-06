@@ -21,7 +21,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
+def buildnumber = System.getenv("BUILD_NUMBER") == null ? ".1" : "."+System.getenv("BUILD_NUMBER")
+
+version = "1.0"+buildnumber
 group= "org.infinity-studio.singularity" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Singularity"
 
