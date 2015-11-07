@@ -39,7 +39,7 @@ public class TechbenchBlock extends MachineBlockContainer {
      */
     public TechbenchBlock() {
         super(Material.iron, "machineWorkbench", SingularityCreativeTab.getCreativeTab(),
-                null, new ResourcePacket(new Resource[]{new Resource(SourceType.test1, 100)}), false);
+                null, new Resource[]{new Resource(SourceType.test1, 100)}, false);
         this.setHarvestLevel("", 2);
     }
 

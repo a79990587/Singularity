@@ -42,10 +42,10 @@ public abstract class MachineBlock extends SingularityBlock {
      * @param canProduce If it can produce resource. Once set to false, parameter produceResource will not work.
      */
     public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab,
-                        ResourcePacket produceResource, ResourcePacket consumeResource, boolean canProduce) {
+                        Resource[] produceResource, Resource[] consumeResource, boolean canProduce) {
         super(material, name, creativeTab);
-        connector.produceResource_$eq(produceResource);
-        connector.consumeResource_$eq(consumeResource);
+        connector.produceResource_$eq(new ResourcePacket(produceResource));
+        connector.consumeResource_$eq(new ResourcePacket(consumeResource));
         connector.canProduce_$eq(canProduce);
     }
 }
