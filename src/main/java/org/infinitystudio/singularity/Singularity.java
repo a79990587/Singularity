@@ -54,7 +54,7 @@ public class Singularity {
         log = event.getModLog();
 
         // Add *ALL* Machine Blocks Here.
-        blocks.add(new Workbench());
+        blocks.add(new TechbenchBlock());
 
         for (IBlockBase block : blocks) {
             if (block instanceof IBlockContainerBase) {

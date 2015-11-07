@@ -32,11 +32,11 @@ import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
  * @author Lasm_Gratel
  *
  */
-public class Workbench extends MachineBlockContainer {
+public class TechbenchBlock extends MachineBlockContainer {
     /**
      * Constructor of the special workbench
      */
-    public Workbench() {
+    public TechbenchBlock() {
         super(Material.iron, "machineWorkbench", SingularityCreativeTab.getCreativeTab(),
                 new Resource(SourceType.test1, 100), SingularityEnums.ResourceInteractType.Input);
         super.setStorageResource(new Resource(SourceType.test1, 0));

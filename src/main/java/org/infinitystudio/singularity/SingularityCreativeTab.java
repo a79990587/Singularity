@@ -18,7 +18,7 @@
 */
 package org.infinitystudio.singularity;
 
-import org.infinitystudio.singularity.block.Workbench;
+import org.infinitystudio.singularity.block.TechbenchBlock;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -45,7 +45,7 @@ public class SingularityCreativeTab extends CreativeTabs {
      */
     @Override
     public Item getTabIconItem() {
-	    return new ItemBlock(new Workbench());
+	    return new ItemBlock(new TechbenchBlock());
     }
 
     public static SingularityCreativeTab getCreativeTab() {
