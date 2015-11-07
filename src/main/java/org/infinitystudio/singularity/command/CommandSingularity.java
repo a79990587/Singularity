@@ -18,9 +18,18 @@
  */
 package org.infinitystudio.singularity.command;
 
+import java.util.Iterator;
+import java.util.List;
+
+import org.infinitystudio.utils.ArgsProgresser;
+import org.infinitystudio.utils.SubCommandProgresser;
+
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
+import net.minecraft.util.ChatComponentStyle;
+import net.minecraft.util.ChatStyle;
+import net.minecraft.util.IChatComponent;
 
 /**
  * @author Lasm_Gratel
@@ -54,8 +63,10 @@ public class CommandSingularity extends CommandBase {
     public void processCommand(ICommandSender commandsender, String[] args) {
         if (args.length > 2) {
             throw new WrongUsageException("commands.singularity.usage", new Object[0]);
+        } else {
+            if(args[0]=="version") {
+            }
         }
-
     }
 
 }
