@@ -28,7 +28,7 @@ import net.minecraft.block.material.Material;
  * @author Lasm_Gratel
  *
  */
-public abstract class MachineBlock extends SingularityBlock implements IMachineBlock {
+public abstract class MachineBlock extends SingularityBlock implements IBlock {
     private Resource produceResource;
     private Resource consumeResource;
     private Resource storageResource;

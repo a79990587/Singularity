@@ -29,17 +29,14 @@ import net.minecraft.item.ItemBlock;
 
 import org.apache.logging.log4j.Logger;
 import org.infinitystudio.singularity.api.SingularityRegistry;
-import org.infinitystudio.singularity.block.IMachineBlock;
-import org.infinitystudio.singularity.block.MachineBlock;
-import org.infinitystudio.singularity.block.MachineBlockContainer;
-import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
+import org.infinitystudio.singularity.block.*;
 
 import java.util.List;
 
 /**
  * @author Lasm_Gratel Singularity Mod Main.
  */
-@Mod(modid = Singularity.MODID, name = Singularity.MODID, version = Singularity.VERSION)
+@Mod(modid = Singularity.MODID, name = Singularity.NAME, version = Singularity.VERSION)
 public class Singularity {
     public static final String MODID = "singularity";
     public static final String NAME = "Singularity";
@@ -50,22 +47,23 @@ public class Singularity {
     
     public static Logger log;
     
-    public static List<IMachineBlock> machineBlocks;
+    public static List<IBlock> blocks;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         log = event.getModLog();
 
-        for (IMachineBlock m : machineBlocks)
-        {
-            if (m instanceof MachineBlockContainer) {
-                MachineBlockContainer mbc = (MachineBlockContainer) m;
-                SingularityRegistry.registerBlock(mbc, ItemBlock.class, mbc.getName());
-                SingularityRegistry.registerTileEntity(mbc.getTileEntityClass(), mbc.getName());
-            }
-            else if (m instanceof MachineBlock) {
-                MachineBlock mb = (MachineBlock) m;
-                SingularityRegistry.registerBlock(mb, ItemBlock.class, mb.getName());
+        // Add *ALL* Machine Blocks Here.
+        blocks.add(new Workbench());
+
+        for (IBlock block : blocks) {
+            if (block instanceof IBlockContainer) {
+                MachineBlockContainer b = (MachineBlockContainer) block;
+                SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
+                SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());
+            } else {
+                MachineBlock b = (MachineBlock) block;
+                SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
             }
         }
 

@@ -27,7 +27,7 @@ import org.infinitystudio.singularity.SingularityCreativeTab;
  *
  * @author Lasm_Gratel
  */
-public abstract class SingularityBlock extends Block {
+public abstract class SingularityBlock extends Block implements IBlock {
 
     private String name;
 
