@@ -21,14 +21,17 @@ package org.infinitystudio.singularity.block;
 import org.infinitystudio.singularity.SingularityCreativeTabs;
 import org.infinitystudio.singularity.api.Energy;
 import org.infinitystudio.singularity.api.Energy.EnergyType;
+import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 /**
  * @author Lasm_Gratel
  *
  */
-public class Workbench extends MachineBlock {
+public class Workbench extends MachineBlockContainer {
     private static Energy produceEnergy = new Energy(EnergyType.test1, 100);
     private Energy consumeEnergy = null;
     private Energy storageEnergy = new Energy(EnergyType.test1, 0);
@@ -53,6 +56,14 @@ public class Workbench extends MachineBlock {
         this.setBlockName("machineWorkbench");
         this.setBlockTextureName("machineWorkbench");
         this.setHarvestLevel("", 2);
+    }
+
+    /*
+     * @see org.infinitystudio.singularity.block.MachineBlockContainer#createNewTileEntity(net.minecraft.world.World, int)
+     */
+    @Override
+    public TileEntity createNewTileEntity(World world, int p_149915_2_) {
+	return new TileEntityWorkbench();
     }
 
 }

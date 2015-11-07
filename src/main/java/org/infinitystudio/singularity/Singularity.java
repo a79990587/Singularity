@@ -21,9 +21,17 @@ package org.infinitystudio.singularity;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import net.minecraft.item.ItemBlock;
+
 import org.apache.logging.log4j.Logger;
+import org.infinitystudio.singularity.api.SingularityRegistry;
+import org.infinitystudio.singularity.block.MachineBlock;
+import org.infinitystudio.singularity.container.ContainerWorkbench;
+import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
 
 /**
  * @author Lasm_Gratel Singularity Mod Main.
@@ -33,15 +41,25 @@ public class Singularity {
     public static final String MODID = "singularity";
     public static final String NAME = "Singularity";
     public static final String VERSION = "1.0";
+    
+    @Instance("Singularity")
+    public static Singularity instance;
+    
     public static Logger log;
+    
+    public static MachineBlock workBench;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         log = event.getModLog();
+        
+        SingularityRegistry.registerBlock(workBench, ItemBlock.class, "blockWorkBench");
+        SingularityRegistry.registerTileEntity(TileEntityWorkbench.class, "containerWorkBench");
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
+	
     }
 }

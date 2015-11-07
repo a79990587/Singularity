@@ -35,7 +35,7 @@ import org.infinitystudio.singularity.item.SingularityItem;
  *
  * @author Darkhighness
  */
-public class SingularityRegistery extends GameRegistry {
+public class SingularityRegistry extends GameRegistry {
 
     private static TechbenchRecipeHandler techbenchRecipeHandler = new TechbenchRecipeHandler();
     private static WorkbenchRecipeHandler workbenchRecipeHandler = new WorkbenchRecipeHandler();
