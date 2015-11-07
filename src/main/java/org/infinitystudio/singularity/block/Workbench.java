@@ -19,8 +19,9 @@
 package org.infinitystudio.singularity.block;
 
 import org.infinitystudio.singularity.SingularityCreativeTabs;
-import org.infinitystudio.singularity.api.Energy;
-import org.infinitystudio.singularity.api.Energy.EnergyType;
+import org.infinitystudio.singularity.api.Resource;
+import org.infinitystudio.singularity.api.Resource.SourceType;
+import org.infinitystudio.singularity.api.SingularityEnums;
 import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
 
 import net.minecraft.block.material.Material;
@@ -32,33 +33,20 @@ import net.minecraft.world.World;
  *
  */
 public class Workbench extends MachineBlockContainer {
-    private static Energy produceEnergy = new Energy(EnergyType.test1, 100);
-    private Energy consumeEnergy = null;
-    private Energy storageEnergy = new Energy(EnergyType.test1, 0);
-    private static boolean outputOrInput = false;
-    private boolean canProduce = false;
-
     /**
-     * Instance a block.
-     *
-     * @param material
-     *            The material
-     * @param name
-     *            The name of the block
-     * @param energy
-     *            Uses/Produce energy
-     * @param outputOrInput
-     *            Whether this machine produce energy or consume energy?
+     * Constructor of the special workbench
      */
     public Workbench() {
-        super(Material.iron, "workbench", produceEnergy, outputOrInput);
+        super(Material.iron, "workbench", new Resource(SourceType.test1, 100),
+                SingularityEnums.ResourceInteractType.Input);
+        super.setStorageResource(new Resource(SourceType.test1, 0));
         this.setCreativeTab(new SingularityCreativeTabs());
         this.setBlockName("machineWorkbench");
         this.setBlockTextureName("machineWorkbench");
         this.setHarvestLevel("", 2);
     }
 
-    /*
+    /**
      * @see org.infinitystudio.singularity.block.MachineBlockContainer#createNewTileEntity(net.minecraft.world.World, int)
      */
     @Override

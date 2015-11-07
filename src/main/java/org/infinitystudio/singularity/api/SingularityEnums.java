@@ -18,24 +18,31 @@
  */
 package org.infinitystudio.singularity.api;
 
-import com.google.common.collect.Lists;
-import org.infinitystudio.singularity.Singularity;
-import org.infinitystudio.singularity.block.MachineBlock;
+public class SingularityEnums {
+    public enum NodeType {
+        NORMAL, // 正常
+        WEAK, // 虚弱
+        OVERLOAD, // 超载
+        REVERSE, // 逆向
+        FEEDBACK, // 反噬
+        RECOVERY, // 恢复
+    }
 
-import java.util.List;
+    public enum CeremonyType {
 
-/**
- * Energy part for Singularity.
- *
- * @author Darkhighness
- * @author Lasm_Gratel
- */
-public class SingularityEnergy {
-    private static List<Thread> threads = Lists.newArrayList();
-    private static List<MachineBlock> machines = Lists.newArrayList();
-    private static int energy = 0;
+    }
 
-    public static void registerMachine(final MachineBlock block) {
-        
+    public enum OriginCoreType {
+        COMMON, // 普遍
+        RARE, // 稀有
+        EPIC, // 史诗
+        LEGEND, // 传说
+        UNKNOWN, // 未知
+        CREATIVE,// 创造
+    }
+
+    public enum ResourceInteractType {
+        Input,
+        Output
     }
 }

@@ -18,7 +18,8 @@
  */
 package org.infinitystudio.singularity.block;
 
-import org.infinitystudio.singularity.api.Energy;
+import org.infinitystudio.singularity.api.Resource;
+import org.infinitystudio.singularity.api.SingularityEnums;
 
 import net.minecraft.block.material.Material;
 
@@ -27,10 +28,10 @@ import net.minecraft.block.material.Material;
  *
  */
 public abstract class MachineBlock extends SingularityBlock {
-    private Energy produceEnergy;
-    private Energy consumeEnergy;
-    private Energy storageEnergy;
-    private boolean outputOrInput;
+    private Resource produceResource;
+    private Resource consumeResource;
+    private Resource storageResource;
+    private SingularityEnums.ResourceInteractType resourceInteractType;
     private boolean canProduce;
 
     /**
@@ -40,78 +41,77 @@ public abstract class MachineBlock extends SingularityBlock {
      *            The material
      * @param name
      *            The name of the block
-     * @param energy
-     *            Uses/Produce energy
-     * @param outputOrInput
-     *            Whether this machine produce energy or consume energy?
+     * @param resource
+     *            Uses/Produce resource
+     * @param resourceInteractType
+     *            Whether this machine produce resource or consume resource?
      */
-    public MachineBlock(Material material, String name, Energy energy, boolean outputOrInput) {
+    public MachineBlock(Material material, String name, Resource resource,
+                        SingularityEnums.ResourceInteractType resourceInteractType) {
         super(material, name);
-        if (outputOrInput)
-            produceEnergy = energy;
+        if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
+            produceResource = resource;
         else
-            consumeEnergy = energy;
-        this.outputOrInput = outputOrInput;
+            consumeResource = resource;
+        this.resourceInteractType = resourceInteractType;
     }
 
-    public Energy getEnergy() {
-        if (outputOrInput)
-            return produceEnergy;
+    public Resource getResource() {
+        if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
+            return produceResource;
         else
-            return consumeEnergy;
+            return consumeResource;
     }
 
-    public void setEnergy(Energy energy, boolean outputOrInput) {
-        if (outputOrInput)
-            produceEnergy = energy;
+    public void setResource(Resource resource,
+                            SingularityEnums.ResourceInteractType resourceInteractType) {
+        if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
+            produceResource = resource;
         else
-            consumeEnergy = energy;
-        this.outputOrInput = outputOrInput;
+            consumeResource = resource;
+        this.resourceInteractType = resourceInteractType;
     }
 
     /**
-     * @return storageEnergy
+     * @return storageResource
      */
-    public Energy getStorageEnergy() {
-        return storageEnergy;
+    public Resource getStorageResource() {
+        return storageResource;
     }
 
     /**
-     * @param storageEnergy
-     *            要设置的 storageEnergy
+     * @param storageResource 要设置的 storageResource
      */
-    public void setStorageEnergy(Energy storageEnergy) {
-        this.storageEnergy = storageEnergy;
+    public void setStorageResource(Resource storageResource) {
+        this.storageResource = storageResource;
     }
 
     /**
-     * @param storageEnergy
-     *            要增加的 storageEnergy
+     * @param storageResource 要增加的 storageResource
      */
-    public void addStorageEnergy(Energy storageEnergy) {
-        this.storageEnergy.setEnergy(storageEnergy.getEnergy()+this.storageEnergy.getEnergy());
+    public void addStorageResource(Resource storageResource) {
+        this.storageResource.setQuantity(storageResource.getQuantity() + this.storageResource.getQuantity());
     }
 
     /**
-     * @param storageEnergy
-     *            要減少的 storageEnergy
+     * @param storageResource 要減少的 storageResource
      */
-    public void delStorageEnergy(Energy storageEnergy) {
-	this.storageEnergy.setEnergy(this.storageEnergy.getEnergy()-storageEnergy.getEnergy());
+    public void delStorageResource(Resource storageResource) {
+	    this.storageResource.setQuantity(this.storageResource.getQuantity() - storageResource.getQuantity());
     }
 
     /**
-     * @return outputOrInput
+     * @return resourceInteractType
      */
-    public boolean isOutputOrInput() {
-        return outputOrInput;
+    public SingularityEnums.ResourceInteractType getResourceInteractType() {
+        return resourceInteractType;
     }
 
     /**
-     * @param outputOrInput 要设置的 outputOrInput
+     * @param resourceInteractType 要设置的 resourceInteractType
      */
-    public void setOutputOrInput(boolean outputOrInput) {
-        this.outputOrInput = outputOrInput;
+    public void setResourceInteractType(SingularityEnums.ResourceInteractType resourceInteractType) {
+        this.resourceInteractType = resourceInteractType;
     }
 
     /**

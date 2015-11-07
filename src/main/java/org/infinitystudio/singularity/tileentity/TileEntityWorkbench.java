@@ -38,7 +38,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	inv=new ItemStack[9];
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#getSizeInventory()
      */
     @Override
@@ -46,7 +46,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	return inv.length;
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#getStackInSlot(int)
      */
     @Override
@@ -54,7 +54,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	return inv[slot];
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#decrStackSize(int, int)
      */
     @Override
@@ -73,7 +73,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
         return stack;
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#getStackInSlotOnClosing(int)
      */
     @Override
@@ -85,7 +85,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
         return stack;
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#setInventorySlotContents(int, net.minecraft.item.ItemStack)
      */
     @Override
@@ -96,7 +96,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
         }
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#getInventoryName()
      */
     @Override
@@ -104,7 +104,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	return "singularity.tileentityworkbrench";
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#hasCustomInventoryName()
      */
     @Override
@@ -112,7 +112,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	return true;
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#getInventoryStackLimit()
      */
     @Override
@@ -120,7 +120,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	return 64;
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#isUseableByPlayer(net.minecraft.entity.player.EntityPlayer)
      */
     @Override
@@ -128,7 +128,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
         return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#openInventory()
      */
     @Override
@@ -136,7 +136,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#closeInventory()
      */
     @Override
@@ -144,7 +144,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
 	
     }
 
-    /*
+    /**
      * @see net.minecraft.inventory.IInventory#isItemValidForSlot(int, net.minecraft.item.ItemStack)
      */
     @Override
