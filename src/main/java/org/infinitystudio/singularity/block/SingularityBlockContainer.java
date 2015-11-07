@@ -2,6 +2,7 @@ package org.infinitystudio.singularity.block;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import org.infinitystudio.singularity.SingularityCreativeTab;
 
 /**
  * @author Blealtan
@@ -18,10 +19,12 @@ public abstract class SingularityBlockContainer extends BlockContainer {
      * @param name
      *            The name of the block
      */
-    public SingularityBlockContainer(Material material, String name) {
+    public SingularityBlockContainer(Material material, String name, SingularityCreativeTab creativeTabs) {
         super(material);
         this.name = name;
         this.setBlockName(name);
+        this.setBlockTextureName(name);
+        this.setCreativeTab(creativeTabs);
     }
 
     public String getName() {

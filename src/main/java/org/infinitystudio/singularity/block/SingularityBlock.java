@@ -20,6 +20,7 @@ package org.infinitystudio.singularity.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import org.infinitystudio.singularity.SingularityCreativeTab;
 
 /**
  * Singularity Block Base.
@@ -38,10 +39,12 @@ public abstract class SingularityBlock extends Block {
      * @param name
      *            The name of the block
      */
-    public SingularityBlock(Material material, String name) {
+    public SingularityBlock(Material material, String name, SingularityCreativeTab creativeTabs) {
         super(material);
         this.name = name;
         this.setBlockName(name);
+        this.setBlockTextureName(name);
+        this.setCreativeTab(creativeTabs);
     }
 
     public String getName() {

@@ -20,9 +20,9 @@ package org.infinitystudio.singularity.block;
 
 import java.util.Random;
 
+import org.infinitystudio.singularity.SingularityCreativeTab;
 import org.infinitystudio.singularity.api.Resource;
 
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
@@ -36,7 +36,7 @@ import org.infinitystudio.singularity.api.SingularityEnums;
  * @author Lasm_Gratel
  *
  */
-public abstract class MachineBlockContainer extends SingularityBlockContainer {
+public abstract class MachineBlockContainer extends SingularityBlockContainer implements IMachineBlock {
     private Resource produceResource;
     private Resource consumeResource;
     private Resource storageResource;
@@ -55,9 +55,9 @@ public abstract class MachineBlockContainer extends SingularityBlockContainer {
      * @param resourceInteractType
      *            Whether this machine produce resource or consume resource?
      */
-    public MachineBlockContainer(Material material, String name, Resource resource,
+    public MachineBlockContainer(Material material, String name, SingularityCreativeTab creativeTab, Resource resource,
                                  SingularityEnums.ResourceInteractType resourceInteractType) {
-        super(material, name);
+        super(material, name, creativeTab);
         if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
             produceResource = resource;
         else
@@ -142,6 +142,11 @@ public abstract class MachineBlockContainer extends SingularityBlockContainer {
      */
     @Override
     public abstract TileEntity createNewTileEntity(World world, int p_149915_2_);
+
+    /**
+     * @return The class of the used TileEntity.
+     */
+    public abstract Class<? extends TileEntity> getTileEntityClass();
     
     private void dropItems(World world, int x, int y, int z){
         Random rand = new Random();

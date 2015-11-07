@@ -18,6 +18,7 @@
  */
 package org.infinitystudio.singularity.block;
 
+import org.infinitystudio.singularity.SingularityCreativeTab;
 import org.infinitystudio.singularity.api.Resource;
 import org.infinitystudio.singularity.api.SingularityEnums;
 
@@ -27,7 +28,7 @@ import net.minecraft.block.material.Material;
  * @author Lasm_Gratel
  *
  */
-public abstract class MachineBlock extends SingularityBlock {
+public abstract class MachineBlock extends SingularityBlock implements IMachineBlock {
     private Resource produceResource;
     private Resource consumeResource;
     private Resource storageResource;
@@ -46,9 +47,9 @@ public abstract class MachineBlock extends SingularityBlock {
      * @param resourceInteractType
      *            Whether this machine produce resource or consume resource?
      */
-    public MachineBlock(Material material, String name, Resource resource,
+    public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab, Resource resource,
                         SingularityEnums.ResourceInteractType resourceInteractType) {
-        super(material, name);
+        super(material, name, creativeTab);
         if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
             produceResource = resource;
         else
@@ -117,7 +118,7 @@ public abstract class MachineBlock extends SingularityBlock {
     /**
      * @return canProduce
      */
-    public boolean isCanProduce() {
+    public boolean canProduce() {
         return canProduce;
     }
 

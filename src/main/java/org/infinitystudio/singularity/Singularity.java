@@ -29,9 +29,12 @@ import net.minecraft.item.ItemBlock;
 
 import org.apache.logging.log4j.Logger;
 import org.infinitystudio.singularity.api.SingularityRegistry;
+import org.infinitystudio.singularity.block.IMachineBlock;
 import org.infinitystudio.singularity.block.MachineBlock;
-import org.infinitystudio.singularity.container.ContainerWorkbench;
+import org.infinitystudio.singularity.block.MachineBlockContainer;
 import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
+
+import java.util.List;
 
 /**
  * @author Lasm_Gratel Singularity Mod Main.
@@ -47,14 +50,25 @@ public class Singularity {
     
     public static Logger log;
     
-    public static MachineBlock workBench;
+    public static List<IMachineBlock> machineBlocks;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         log = event.getModLog();
-        
-        SingularityRegistry.registerBlock(workBench, ItemBlock.class, "blockWorkBench");
-        SingularityRegistry.registerTileEntity(TileEntityWorkbench.class, "containerWorkBench");
+
+        for (IMachineBlock m : machineBlocks)
+        {
+            if (m instanceof MachineBlockContainer) {
+                MachineBlockContainer mbc = (MachineBlockContainer) m;
+                SingularityRegistry.registerBlock(mbc, ItemBlock.class, mbc.getName());
+                SingularityRegistry.registerTileEntity(mbc.getTileEntityClass(), mbc.getName());
+            }
+            else if (m instanceof MachineBlock) {
+                MachineBlock mb = (MachineBlock) m;
+                SingularityRegistry.registerBlock(mb, ItemBlock.class, mb.getName());
+            }
+        }
+
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 

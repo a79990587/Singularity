@@ -19,11 +19,12 @@
 package org.infinitystudio.singularity.block
 
 import net.minecraft.block.material.Material
+import org.infinitystudio.singularity.SingularityCreativeTab
 
 /**
  * Techbench Block.
  * @author Blealtan
  */
-object TechbenchBlock extends SingularityBlock(Material.rock, "techbench") {
+object TechbenchBlock extends SingularityBlock(Material.rock, "machineTechbench", SingularityCreativeTab.getCreativeTab) {
 
 }

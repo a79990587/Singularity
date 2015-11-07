@@ -28,22 +28,27 @@ import net.minecraft.item.ItemBlock;
  * @author Lasm_Gratel
  *
  */
-public class SingularityCreativeTabs extends CreativeTabs {
+public class SingularityCreativeTab extends CreativeTabs {
+
+    private static SingularityCreativeTab creativeTab;
 
     /**
-     * @param lable
+     * Initialize the creative tab.
      */
-    public SingularityCreativeTabs() {
-	super("tabSingularity");
+    public SingularityCreativeTab() {
+	    super("tabSingularity");
+        SingularityCreativeTab.creativeTab = this;
     }
 
-
-    /*
+    /**
      * @see net.minecraft.creativetab.CreativeTabs#getTabIconItem()
      */
     @Override
     public Item getTabIconItem() {
-	return new ItemBlock(new Workbench());
+	    return new ItemBlock(new Workbench());
     }
 
+    public static SingularityCreativeTab getCreativeTab() {
+        return creativeTab;
+    }
 }
