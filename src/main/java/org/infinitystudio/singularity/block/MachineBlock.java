@@ -19,113 +19,33 @@
 package org.infinitystudio.singularity.block;
 
 import org.infinitystudio.singularity.SingularityCreativeTab;
-import org.infinitystudio.singularity.api.Resource;
-import org.infinitystudio.singularity.api.SingularityEnums;
 
 import net.minecraft.block.material.Material;
+import org.infinitystudio.singularity.api.resource.Resource;
+import org.infinitystudio.singularity.api.resource.ResourceNetConnector;
+import org.infinitystudio.singularity.api.resource.ResourcePacket;
 
 /**
  * @author Lasm_Gratel
  *
  */
 public abstract class MachineBlock extends SingularityBlock {
-    private Resource produceResource;
-    private Resource consumeResource;
-    private Resource storageResource;
-    private SingularityEnums.ResourceInteractType resourceInteractType;
-    private boolean canProduce;
+    public ResourceNetConnector connector;
 
     /**
-     * Instance a block.
-     *
-     * @param material
-     *            The material
-     * @param name
-     *            The name of the block
-     * @param resource
-     *            Uses/Produce resource
-     * @param resourceInteractType
-     *            Whether this machine produce resource or consume resource?
+     * Instance of a machine block.
+     * @param material The material
+     * @param name The name of the block.
+     * @param creativeTab The creative tab to be set.
+     * @param produceResource The resource it produces per tick. Can be null.
+     * @param consumeResource The resource it produces per tick. Can be null.
+     * @param canProduce If it can produce resource. Once set to false, parameter produceResource will not work.
      */
-    public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab, Resource resource,
-                        SingularityEnums.ResourceInteractType resourceInteractType) {
+    public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab,
+                        ResourcePacket produceResource, ResourcePacket consumeResource, boolean canProduce) {
         super(material, name, creativeTab);
-        if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
-            produceResource = resource;
-        else
-            consumeResource = resource;
-        this.resourceInteractType = resourceInteractType;
-    }
-
-    public Resource getResource() {
-        if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
-            return produceResource;
-        else
-            return consumeResource;
-    }
-
-    public void setResource(Resource resource,
-                            SingularityEnums.ResourceInteractType resourceInteractType) {
-        if (resourceInteractType == SingularityEnums.ResourceInteractType.Output)
-            produceResource = resource;
-        else
-            consumeResource = resource;
-        this.resourceInteractType = resourceInteractType;
-    }
-
-    /**
-     * @return storageResource
-     */
-    public Resource getStorageResource() {
-        return storageResource;
-    }
-
-    /**
-     * @param storageResource 要设置的 storageResource
-     */
-    public void setStorageResource(Resource storageResource) {
-        this.storageResource = storageResource;
-    }
-
-    /**
-     * @param storageResource 要增加的 storageResource
-     */
-    public void addStorageResource(Resource storageResource) {
-        this.storageResource.setQuantity(storageResource.getQuantity() + this.storageResource.getQuantity());
-    }
-
-    /**
-     * @param storageResource 要減少的 storageResource
-     */
-    public void delStorageResource(Resource storageResource) {
-	    this.storageResource.setQuantity(this.storageResource.getQuantity() - storageResource.getQuantity());
-    }
-
-    /**
-     * @return resourceInteractType
-     */
-    public SingularityEnums.ResourceInteractType getResourceInteractType() {
-        return resourceInteractType;
-    }
-
-    /**
-     * @param resourceInteractType 要设置的 resourceInteractType
-     */
-    public void setResourceInteractType(SingularityEnums.ResourceInteractType resourceInteractType) {
-        this.resourceInteractType = resourceInteractType;
-    }
-
-    /**
-     * @return canProduce
-     */
-    public boolean canProduce() {
-        return canProduce;
-    }
-
-    /**
-     * @param canProduce 要设置的 canProduce
-     */
-    public void setCanProduce(boolean canProduce) {
-        this.canProduce = canProduce;
+        connector.produceResource_$eq(produceResource);
+        connector.consumeResource_$eq(consumeResource);
+        connector.canProduce_$eq(canProduce);
     }
 }

@@ -58,11 +58,11 @@ public class Singularity {
 
         for (IBlockBase block : blocks) {
             if (block instanceof IBlockContainerBase) {
-                MachineBlockContainer b = (MachineBlockContainer) block;
+                SingularityBlockContainer b = (SingularityBlockContainer) block;
                 SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
                 SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());
             } else {
-                MachineBlock b = (MachineBlock) block;
+                SingularityBlock b = (SingularityBlock) block;
                 SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
             }
         }

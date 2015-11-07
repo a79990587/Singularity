@@ -17,11 +17,11 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.api;
+package org.infinitystudio.singularity.api.resource;
 
 /**
+ * The representation of a packet of resource.
  * @author Lasm_Gratel
- *
  */
 public class Resource {
     private int quantity;

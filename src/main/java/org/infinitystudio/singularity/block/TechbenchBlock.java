@@ -23,9 +23,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import org.infinitystudio.singularity.SingularityCreativeTab;
-import org.infinitystudio.singularity.api.Resource;
-import org.infinitystudio.singularity.api.Resource.SourceType;
+import org.infinitystudio.singularity.api.resource.Resource;
+import org.infinitystudio.singularity.api.resource.Resource.SourceType;
 import org.infinitystudio.singularity.api.SingularityEnums;
+import org.infinitystudio.singularity.api.resource.ResourcePacket;
 import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
 
 /**
@@ -38,8 +39,7 @@ public class TechbenchBlock extends MachineBlockContainer {
      */
     public TechbenchBlock() {
         super(Material.iron, "machineWorkbench", SingularityCreativeTab.getCreativeTab(),
-                new Resource(SourceType.test1, 100), SingularityEnums.ResourceInteractType.Input);
-        super.setStorageResource(new Resource(SourceType.test1, 0));
+                null, new ResourcePacket(new Resource[]{new Resource(SourceType.test1, 100)}), false);
         this.setHarvestLevel("", 2);
     }
 

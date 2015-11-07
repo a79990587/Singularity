@@ -40,9 +40,4 @@ public class SingularityEnums {
         UNKNOWN, // 未知
         CREATIVE,// 创造
     }
-
-    public enum ResourceInteractType {
-        Input,
-        Output
-    }
 }

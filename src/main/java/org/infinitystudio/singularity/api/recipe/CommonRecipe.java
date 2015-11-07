@@ -27,7 +27,7 @@ import net.minecraft.item.ItemStack;
  */
 public class CommonRecipe {
 
-    protected boolean available;
+    public boolean available;
     // 系统分配 合成表唯一ID
     private int id;
     // 输入的物品
