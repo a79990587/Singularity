@@ -47,7 +47,7 @@ public class Singularity {
     
     public static Logger log;
     
-    public static List<IBlock> blocks;
+    public static List<IBlockBase> blocks;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -56,8 +56,8 @@ public class Singularity {
         // Add *ALL* Machine Blocks Here.
         blocks.add(new Workbench());
 
-        for (IBlock block : blocks) {
-            if (block instanceof IBlockContainer) {
+        for (IBlockBase block : blocks) {
+            if (block instanceof IBlockContainerBase) {
                 MachineBlockContainer b = (MachineBlockContainer) block;
                 SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
                 SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());

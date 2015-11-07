@@ -5,6 +5,6 @@ import net.minecraft.tileentity.TileEntity;
 /**
  * @author Blealtan
  */
-public interface IBlockContainer extends IBlock {
+public interface IBlockContainerBase extends IBlockBase {
     Class<? extends TileEntity> getTileEntityClass();
 }

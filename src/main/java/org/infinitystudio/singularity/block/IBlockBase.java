@@ -3,6 +3,6 @@ package org.infinitystudio.singularity.block;
 /**
  * @author Blealtan
  */
-public interface IBlock {
+public interface IBlockBase {
     String getName();
 }

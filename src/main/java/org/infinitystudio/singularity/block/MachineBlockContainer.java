@@ -36,7 +36,7 @@ import org.infinitystudio.singularity.api.SingularityEnums;
  * @author Lasm_Gratel
  *
  */
-public abstract class MachineBlockContainer extends SingularityBlockContainer implements IBlockContainer {
+public abstract class MachineBlockContainer extends SingularityBlockContainer {
     private Resource produceResource;
     private Resource consumeResource;
     private Resource storageResource;

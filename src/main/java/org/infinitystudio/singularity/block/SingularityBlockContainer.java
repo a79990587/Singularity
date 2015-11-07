@@ -9,7 +9,7 @@ import org.infinitystudio.singularity.SingularityCreativeTab;
 /**
  * @author Blealtan
  */
-public abstract class SingularityBlockContainer extends BlockContainer implements IBlockContainer {
+public abstract class SingularityBlockContainer extends BlockContainer implements IBlockContainerBase {
 
     private String name;
 
