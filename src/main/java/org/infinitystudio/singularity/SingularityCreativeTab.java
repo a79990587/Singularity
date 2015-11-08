@@ -30,18 +30,11 @@ import org.infinitystudio.singularity.block.TechbenchBlock;
  */
 public class SingularityCreativeTab extends CreativeTabs {
 
-    private static SingularityCreativeTab creativeTab;
-
     /**
      * Initialize the creative tab.
      */
-    public SingularityCreativeTab() {
-        super("tabSingularity");
-        SingularityCreativeTab.creativeTab = this;
-    }
-
-    public static SingularityCreativeTab getCreativeTab() {
-        return creativeTab;
+    public SingularityCreativeTab(String name) {
+        super(name);
     }
 
     /**

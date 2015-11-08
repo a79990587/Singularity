@@ -30,7 +30,9 @@ import org.infinitystudio.singularity.api.SingularityRegistry;
 import org.infinitystudio.singularity.block.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Lasm_Gratel Singularity Mod Main.
@@ -48,15 +50,19 @@ public class Singularity {
 
     public static List<IBlockBase> blocks;
 
+    public static Map<String, SingularityCreativeTab> creativeTabs;
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        creativeTabs = new HashMap<String, SingularityCreativeTab>();
+        creativeTabs.put("tabSingularity", new SingularityCreativeTab("tabSingularity"));
+
         log = event.getModLog();
 
         log.debug("[Singularity] Add Blocks...");
         blocks = new ArrayList<IBlockBase>();
 
         // Add *ALL* Machine Blocks Here.
-
         blocks.add(new TechbenchBlock());
 
         for (IBlockBase block : blocks) {
