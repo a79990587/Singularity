@@ -29,7 +29,11 @@ import net.minecraft.item.ItemBlock;
 
 import org.apache.logging.log4j.Logger;
 import org.infinitystudio.singularity.api.SingularityRegistry;
-import org.infinitystudio.singularity.block.*;
+import org.infinitystudio.singularity.block.IBlockBase;
+import org.infinitystudio.singularity.block.IBlockContainerBase;
+import org.infinitystudio.singularity.block.SingularityBlock;
+import org.infinitystudio.singularity.block.SingularityBlockContainer;
+import org.infinitystudio.singularity.block.TechbenchBlock;
 
 import java.util.List;
 
@@ -52,10 +56,11 @@ public class Singularity {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         log = event.getModLog();
-
+        
+        log.debug("[Singularity] Add Blocks...");
         // Add *ALL* Machine Blocks Here.
         blocks.add(new TechbenchBlock());
-
+        
         for (IBlockBase block : blocks) {
             if (block instanceof IBlockContainerBase) {
                 SingularityBlockContainer b = (SingularityBlockContainer) block;
@@ -66,7 +71,8 @@ public class Singularity {
                 SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
             }
         }
-
+        
+        log.debug("[Singularity] Registring GUI Handler...");
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 

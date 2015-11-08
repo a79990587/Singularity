@@ -36,7 +36,7 @@ public class SingularityCreativeTab extends CreativeTabs {
      * Initialize the creative tab.
      */
     public SingularityCreativeTab() {
-	    super("tabSingularity");
+	super("tabSingularity");
         SingularityCreativeTab.creativeTab = this;
     }
 
@@ -45,7 +45,7 @@ public class SingularityCreativeTab extends CreativeTabs {
      */
     @Override
     public Item getTabIconItem() {
-	    return new ItemBlock(new TechbenchBlock());
+	return new ItemBlock(new TechbenchBlock());
     }
 
     public static SingularityCreativeTab getCreativeTab() {

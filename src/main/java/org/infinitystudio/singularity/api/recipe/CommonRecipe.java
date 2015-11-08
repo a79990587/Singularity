@@ -28,11 +28,11 @@ import net.minecraft.item.ItemStack;
 public class CommonRecipe {
 
     public boolean available;
-    // 系统分配 合成表唯一ID
+    //Only one id
     private int id;
-    // 输入的物品
+    //Input
     private ItemStack[] in;
-    // 输出的物品
+    //Output
     private ItemStack[] out;
 
     public CommonRecipe(ItemStack[] in, ItemStack[] out) {
