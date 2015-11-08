@@ -19,24 +19,30 @@
  */
 package org.infinitystudio.singularity.tileentity;
 
+import java.util.Random;
+
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
 /**
+ * An Inventory TileEntity. There is 6 slots: slot1 slot2 slot3 slot4 slot5
+ * |-------|-----|-----|-----| | slot6
+ * 
  * @author Lasm_Gratel
- *
  */
-public class TileEntityWorkbench extends TileEntity implements IInventory {
+public class TileEntityTechbench extends TileEntity implements IInventory {
 
     private ItemStack[] inv;
 
     /**
      *
      */
-    public TileEntityWorkbench() {
-        inv = new ItemStack[9];
+    public TileEntityTechbench() {
+	inv = new ItemStack[6];
     }
 
     /**
@@ -44,7 +50,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public int getSizeInventory() {
-        return inv.length;
+	return inv.length;
     }
 
     /**
@@ -52,7 +58,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return inv[slot];
+	return inv[slot];
     }
 
     /**
@@ -60,18 +66,18 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public ItemStack decrStackSize(int slot, int amt) {
-        ItemStack stack = getStackInSlot(slot);
-        if (stack != null) {
-            if (stack.stackSize <= amt) {
-                setInventorySlotContents(slot, null);
-            } else {
-                stack = stack.splitStack(amt);
-                if (stack.stackSize == 0) {
-                    setInventorySlotContents(slot, null);
-                }
-            }
-        }
-        return stack;
+	ItemStack stack = getStackInSlot(slot);
+	if (stack != null) {
+	    if (stack.stackSize <= amt) {
+		setInventorySlotContents(slot, null);
+	    } else {
+		stack = stack.splitStack(amt);
+		if (stack.stackSize == 0) {
+		    setInventorySlotContents(slot, null);
+		}
+	    }
+	}
+	return stack;
     }
 
     /**
@@ -79,22 +85,23 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public ItemStack getStackInSlotOnClosing(int slot) {
-        ItemStack stack = getStackInSlot(slot);
-        if (stack != null) {
-            setInventorySlotContents(slot, null);
-        }
-        return stack;
+	ItemStack stack = getStackInSlot(slot);
+	if (stack != null) {
+	    setInventorySlotContents(slot, null);
+	}
+	return stack;
     }
 
     /**
-     * @see net.minecraft.inventory.IInventory#setInventorySlotContents(int, net.minecraft.item.ItemStack)
+     * @see net.minecraft.inventory.IInventory#setInventorySlotContents(int,
+     *      net.minecraft.item.ItemStack)
      */
     @Override
     public void setInventorySlotContents(int slot, ItemStack stack) {
-        inv[slot] = stack;
-        if (stack != null && stack.stackSize > getInventoryStackLimit()) {
-            stack.stackSize = getInventoryStackLimit();
-        }
+	inv[slot] = stack;
+	if (stack != null && stack.stackSize > getInventoryStackLimit()) {
+	    stack.stackSize = getInventoryStackLimit();
+	}
     }
 
     /**
@@ -102,7 +109,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public String getInventoryName() {
-        return "singularity.tileentityworkbrench";
+	return "singularity.tileentityworkbrench";
     }
 
     /**
@@ -110,7 +117,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public boolean hasCustomInventoryName() {
-        return true;
+	return true;
     }
 
     /**
@@ -118,7 +125,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public int getInventoryStackLimit() {
-        return 64;
+	return 1;
     }
 
     /**
@@ -126,7 +133,8 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
-        return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+	return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this
+		&& player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
     }
 
     /**
@@ -142,15 +150,53 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public void closeInventory() {
+	Random rand = new Random();
 
+	TileEntity tileEntity = worldObj.getTileEntity(xCoord, yCoord, zCoord);
+	if (!(tileEntity instanceof IInventory)) {
+	    return;
+	}
+	IInventory inventory = (IInventory) tileEntity;
+
+	for (int i = 0; i < inventory.getSizeInventory(); i++) {
+	    ItemStack item = inventory.getStackInSlot(i);
+
+	    if (item != null && item.stackSize > 0) {
+		float rx = rand.nextFloat() * 0.8F + 0.1F;
+		float ry = rand.nextFloat() * 0.8F + 0.1F;
+		float rz = rand.nextFloat() * 0.8F + 0.1F;
+
+		EntityItem entityItem = new EntityItem(worldObj, xCoord + rx, yCoord + ry, zCoord + rz,
+			new ItemStack(item.getItem(), item.stackSize, item.getItemDamage()));
+
+		if (item.hasTagCompound()) {
+		    entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
+		}
+
+		float factor = 0.05F;
+		entityItem.motionX = rand.nextGaussian() * factor;
+		entityItem.motionY = rand.nextGaussian() * factor + 0.2F;
+		entityItem.motionZ = rand.nextGaussian() * factor;
+		worldObj.spawnEntityInWorld(entityItem);
+		item.stackSize = 0;
+	    }
+	}
     }
 
     /**
-     * @see net.minecraft.inventory.IInventory#isItemValidForSlot(int, net.minecraft.item.ItemStack)
+     * @param slot
+     *            Player selected slot.
+     * @param itemstack
+     *            Things in slot.
+     * @see net.minecraft.inventory.IInventory#isItemValidForSlot(int,
+     *      net.minecraft.item.ItemStack)
      */
     @Override
-    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        return true;
+    public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
+	if (slot == 6) {
+	    return false;
+	}
+	return true;
     }
 
 }

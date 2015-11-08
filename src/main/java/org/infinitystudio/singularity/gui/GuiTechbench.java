@@ -30,12 +30,12 @@ import org.lwjgl.opengl.GL11;
  * @author Lasm_Gratel
  *
  */
-public class GuiWorkbench extends GuiContainer {
+public class GuiTechbench extends GuiContainer {
 
     /**
      * @param p_i1072_1_
      */
-    public GuiWorkbench(Container p_i1072_1_) {
+    public GuiTechbench(Container p_i1072_1_) {
         super(p_i1072_1_);
     }
 

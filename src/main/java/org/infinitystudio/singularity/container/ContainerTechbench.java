@@ -24,17 +24,17 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
+import org.infinitystudio.singularity.tileentity.TileEntityTechbench;
 
 /**
  * @author Lasm_Gratel
  *
  */
-public class ContainerWorkbench extends Container {
+public class ContainerTechbench extends Container {
 
-    protected TileEntityWorkbench tileEntity;
+    protected TileEntityTechbench tileEntity;
 
-    public ContainerWorkbench(InventoryPlayer inventoryPlayer, TileEntityWorkbench te) {
+    public ContainerTechbench(InventoryPlayer inventoryPlayer, TileEntityTechbench te) {
         tileEntity = te;
 
         // the Slot constructor takes the IInventory and the slot number in that

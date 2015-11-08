@@ -35,7 +35,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Lasm_Gratel Singularity Mod Main.
+ * Singularity Mod Main.
+ * @author Lasm_Gratel
+ * @author Blealtan
+ * @author DarkHighness
+ * @author zzzz
  */
 @Mod(modid = Singularity.MODID, name = Singularity.NAME, version = Singularity.VERSION)
 public class Singularity {
@@ -43,20 +47,32 @@ public class Singularity {
     public static final String NAME = "Singularity";
     public static final String VERSION = "1.0";
 
+    // Instance of this mod
     @Instance("Singularity")
     public static Singularity instance;
 
+    // Logger of this mod
     public static Logger log;
 
+    // Blocks of this mod
     public static List<IBlockBase> blocks;
 
+    // CreativeTabs of this mod
     public static Map<String, SingularityCreativeTab> creativeTabs;
 
+    /**
+     * Pre-Initialization Event of FML.
+     * Will happen in Pre-Initialization State.
+     * @param event 
+     */
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+	
+	// Create creative tab,
         creativeTabs = new HashMap<String, SingularityCreativeTab>();
         creativeTabs.put("tabSingularity", new SingularityCreativeTab("tabSingularity"));
-
+        
+        // Get log of the Forge.
         log = event.getModLog();
 
         log.debug("[Singularity] Add Blocks...");
@@ -65,6 +81,7 @@ public class Singularity {
         // Add *ALL* Machine Blocks Here.
         blocks.add(new TechbenchBlock());
 
+        // Registry All block in Singularity.
         for (IBlockBase block : blocks) {
             if (block instanceof IBlockContainerBase) {
                 SingularityBlockContainer b = (SingularityBlockContainer) block;
@@ -80,8 +97,13 @@ public class Singularity {
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
+    /**
+     * Initialization Event of FML.
+     * Will happen in Initialization State.
+     * @param event 
+     */
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
+	//TODO Register Machine Custom Recipes
     }
 }

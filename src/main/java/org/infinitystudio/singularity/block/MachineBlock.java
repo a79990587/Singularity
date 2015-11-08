@@ -27,7 +27,8 @@ import org.infinitystudio.singularity.api.resource.ResourcePacket;
  * @author Lasm_Gratel
  */
 public abstract class MachineBlock extends SingularityBlock {
-    public ResourceNetConnector connector;
+    private ResourceNetConnector connector;
+    private boolean isWorking;
 
     /**
      * Instance of a machine block.
@@ -47,5 +48,37 @@ public abstract class MachineBlock extends SingularityBlock {
         connector.setProduceResource(produceResource);
         connector.setConsumeResource(consumeResource);
         connector.setCanProduce(canProduce);
+    }
+
+
+    /**
+     * @return connector
+     */
+    public ResourceNetConnector getConnector() {
+        return connector;
+    }
+
+
+    /**
+     * @param connector 要设置的 connector
+     */
+    public void setConnector(ResourceNetConnector connector) {
+        this.connector = connector;
+    }
+
+
+    /**
+     * @return isWorking
+     */
+    public boolean isWorking() {
+        return isWorking;
+    }
+
+
+    /**
+     * @param isWorking 要设置的 isWorking
+     */
+    public void setWorking(boolean isWorking) {
+        this.isWorking = isWorking;
     }
 }

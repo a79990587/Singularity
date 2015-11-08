@@ -27,7 +27,7 @@ import org.infinitystudio.singularity.SingularityCreativeTab;
 import org.infinitystudio.singularity.api.resource.Resource;
 import org.infinitystudio.singularity.api.resource.Resource.ResourceType;
 import org.infinitystudio.singularity.api.resource.ResourcePacket;
-import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
+import org.infinitystudio.singularity.tileentity.TileEntityTechbench;
 
 /**
  * @author Lasm_Gratel
@@ -37,7 +37,7 @@ public class TechbenchBlock extends MachineBlockContainer {
      * Constructor of the special workbench
      */
     public TechbenchBlock() {
-        super(Material.iron, "machineWorkbench", Singularity.creativeTabs.get("tabSingularity"),
+        super(Material.iron, "machineTechbench", Singularity.creativeTabs.get("tabSingularity"),
                 null, new ResourcePacket(new Resource(ResourceType.test1, 100)), false);
         this.setHarvestLevel("", 2);
     }
@@ -47,14 +47,14 @@ public class TechbenchBlock extends MachineBlockContainer {
      */
     @Override
     public TileEntity createNewTileEntity(World world, int p_149915_2_) {
-        return new TileEntityWorkbench();
+        return new TileEntityTechbench();
     }
 
     /**
-     * @return TileEntityWorkbench.class
+     * @return TileEntityTechbench.class
      * @see MachineBlockContainer#getTileEntityClass()
      */
     public Class<? extends TileEntity> getTileEntityClass() {
-        return TileEntityWorkbench.class;
+        return TileEntityTechbench.class;
     }
 }
