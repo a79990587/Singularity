@@ -27,6 +27,7 @@ public class TechbenchRecipe extends CommonRecipe {
 
     /**
      * Get the cost.
+     *
      * @return The cost.
      */
     public ResourcePacket getCost() {
@@ -35,6 +36,7 @@ public class TechbenchRecipe extends CommonRecipe {
 
     /**
      * Set the cost.
+     *
      * @param cost The cost.
      */
     public void setCost(ResourcePacket cost) {

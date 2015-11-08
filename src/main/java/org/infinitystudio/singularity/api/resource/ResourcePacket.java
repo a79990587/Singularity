@@ -10,6 +10,7 @@ public class ResourcePacket {
 
     /**
      * Initialise the resource packet.
+     *
      * @param resources The argument list of resources to be moved into the packet.
      */
     public ResourcePacket(Resource... resources) {
@@ -18,9 +19,11 @@ public class ResourcePacket {
             if (!this.resources.containsKey(r.getType()))
                 this.resources.put(r.getType(), r);
     }
+
     /**
      * Set the resources in the packet if one type is specified in argument list.
      * Not mentioned resource type will not be influenced.
+     *
      * @param resources The argument list of resources to be moved into the packet.
      */
     public ResourcePacket setResource(Resource... resources) {
@@ -32,6 +35,7 @@ public class ResourcePacket {
 
     /**
      * Get resource information for specified source type.
+     *
      * @param resourceType The specified type.
      * @return The wanted resource.
      */
@@ -41,6 +45,7 @@ public class ResourcePacket {
 
     /**
      * Append a resource packet to this one.
+     *
      * @param resourcePacket The packet to be appended here.
      * @return this
      */
@@ -57,6 +62,7 @@ public class ResourcePacket {
 
     /**
      * Remove a resource packet from this one.
+     *
      * @param resourcePacket The packet to be removed from here.
      * @return At most `this`. If not enough, null.
      */

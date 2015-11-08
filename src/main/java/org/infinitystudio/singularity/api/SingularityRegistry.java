@@ -38,6 +38,7 @@ import java.util.Map;
 public class SingularityRegistry extends GameRegistry {
 
     private static Map<Class<? extends CommonRecipeHandler>, CommonRecipeHandler> handlerMap = null;
+
     static {
         handlerMap = new HashMap<Class<? extends CommonRecipeHandler>, CommonRecipeHandler>();
         handlerMap.put(CommonRecipeHandler.class, new CommonRecipeHandler());
@@ -76,7 +77,7 @@ public class SingularityRegistry extends GameRegistry {
     /**
      * To get the possible recipe for the input items.
      *
-     * @param c The class of RecipeHandler of the wanted type.
+     * @param c      The class of RecipeHandler of the wanted type.
      * @param itemIn The item used in the recipe.
      * @return The recipe object.
      */

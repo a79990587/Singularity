@@ -1,21 +1,22 @@
 /**
- *  Singularity Mod for Minecraft.
- *  Copyright (C) 2015 Infinity Studio.
+ * Singularity Mod for Minecraft.
+ * Copyright (C) 2015 Infinity Studio.
+ * <p/>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *  
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *  
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  @license GPLv3
-*/
+ * @license GPLv3
+ */
 package org.infinitystudio.singularity.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,12 +31,12 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityWorkbench extends TileEntity implements IInventory {
 
     private ItemStack[] inv;
-    
+
     /**
-     * 
+     *
      */
     public TileEntityWorkbench() {
-	inv=new ItemStack[9];
+        inv = new ItemStack[9];
     }
 
     /**
@@ -43,7 +44,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public int getSizeInventory() {
-	return inv.length;
+        return inv.length;
     }
 
     /**
@@ -51,7 +52,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public ItemStack getStackInSlot(int slot) {
-	return inv[slot];
+        return inv[slot];
     }
 
     /**
@@ -61,14 +62,14 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
     public ItemStack decrStackSize(int slot, int amt) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-                if (stack.stackSize <= amt) {
-                        setInventorySlotContents(slot, null);
-                } else {
-                        stack = stack.splitStack(amt);
-                        if (stack.stackSize == 0) {
-                                setInventorySlotContents(slot, null);
-                        }
+            if (stack.stackSize <= amt) {
+                setInventorySlotContents(slot, null);
+            } else {
+                stack = stack.splitStack(amt);
+                if (stack.stackSize == 0) {
+                    setInventorySlotContents(slot, null);
                 }
+            }
         }
         return stack;
     }
@@ -80,7 +81,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
     public ItemStack getStackInSlotOnClosing(int slot) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-                setInventorySlotContents(slot, null);
+            setInventorySlotContents(slot, null);
         }
         return stack;
     }
@@ -92,7 +93,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
     public void setInventorySlotContents(int slot, ItemStack stack) {
         inv[slot] = stack;
         if (stack != null && stack.stackSize > getInventoryStackLimit()) {
-                stack.stackSize = getInventoryStackLimit();
+            stack.stackSize = getInventoryStackLimit();
         }
     }
 
@@ -101,7 +102,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public String getInventoryName() {
-	return "singularity.tileentityworkbrench";
+        return "singularity.tileentityworkbrench";
     }
 
     /**
@@ -109,7 +110,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public boolean hasCustomInventoryName() {
-	return true;
+        return true;
     }
 
     /**
@@ -117,7 +118,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public int getInventoryStackLimit() {
-	return 64;
+        return 64;
     }
 
     /**
@@ -133,7 +134,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public void openInventory() {
-	
+
     }
 
     /**
@@ -141,7 +142,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public void closeInventory() {
-	
+
     }
 
     /**
@@ -149,7 +150,7 @@ public class TileEntityWorkbench extends TileEntity implements IInventory {
      */
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-	return true;
+        return true;
     }
 
 }

@@ -18,7 +18,6 @@
  */
 package org.infinitystudio.singularity.api.recipe;
 
-import com.google.common.collect.Maps;
 import net.minecraft.item.ItemStack;
 
 import java.util.HashMap;

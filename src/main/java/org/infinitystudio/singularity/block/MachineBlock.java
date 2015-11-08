@@ -18,34 +18,34 @@
  */
 package org.infinitystudio.singularity.block;
 
-import org.infinitystudio.singularity.SingularityCreativeTab;
-
 import net.minecraft.block.material.Material;
-import org.infinitystudio.singularity.api.resource.Resource;
+import org.infinitystudio.singularity.SingularityCreativeTab;
 import org.infinitystudio.singularity.api.resource.ResourceNetConnector;
 import org.infinitystudio.singularity.api.resource.ResourcePacket;
 
 /**
  * @author Lasm_Gratel
- *
  */
 public abstract class MachineBlock extends SingularityBlock {
     public ResourceNetConnector connector;
 
     /**
      * Instance of a machine block.
-     * @param material The material
-     * @param name The name of the block.
-     * @param creativeTab The creative tab to be set.
+     *
+     * @param material        The material
+     * @param name            The name of the block.
+     * @param creativeTab     The creative tab to be set.
      * @param produceResource The resource it produces per tick. Can be null.
      * @param consumeResource The resource it produces per tick. Can be null.
-     * @param canProduce If it can produce resource. Once set to false, parameter produceResource will not work.
+     * @param canProduce      If it can produce resource. Once set to false, parameter
+     *                        produceResource will not work.
      */
     public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab,
-                        Resource[] produceResource, Resource[] consumeResource, boolean canProduce) {
+                        ResourcePacket produceResource, ResourcePacket consumeResource, boolean canProduce) {
         super(material, name, creativeTab);
-        connector.produceResource_$eq(new ResourcePacket(produceResource));
-        connector.consumeResource_$eq(new ResourcePacket(consumeResource));
-        connector.canProduce_$eq(canProduce);
+        connector = new ResourceNetConnector();
+        connector.setProduceResource(produceResource);
+        connector.setConsumeResource(consumeResource);
+        connector.setCanProduce(canProduce);
     }
 }

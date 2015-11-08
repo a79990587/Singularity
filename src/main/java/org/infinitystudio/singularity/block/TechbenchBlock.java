@@ -30,7 +30,6 @@ import org.infinitystudio.singularity.tileentity.TileEntityWorkbench;
 
 /**
  * @author Lasm_Gratel
- *
  */
 public class TechbenchBlock extends MachineBlockContainer {
     /**

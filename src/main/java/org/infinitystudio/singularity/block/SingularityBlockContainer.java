@@ -34,10 +34,8 @@ public abstract class SingularityBlockContainer extends BlockContainer implement
     /**
      * Instance a block.
      *
-     * @param material
-     *            The material
-     * @param name
-     *            The name of the block
+     * @param material The material
+     * @param name     The name of the block
      */
     public SingularityBlockContainer(Material material, String name, SingularityCreativeTab creativeTabs) {
         super(material);

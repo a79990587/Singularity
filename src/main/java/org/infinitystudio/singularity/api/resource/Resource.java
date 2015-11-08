@@ -21,6 +21,7 @@ package org.infinitystudio.singularity.api.resource;
 
 /**
  * The representation of a packet of resource.
+ *
  * @author Lasm_Gratel
  */
 public class Resource {
@@ -28,7 +29,7 @@ public class Resource {
     private ResourceType type;
 
     /**
-     * @param type Type of the quantity
+     * @param type     Type of the quantity
      * @param quantity Resource quantity, must be positive
      */
     public Resource(ResourceType type, int quantity) {

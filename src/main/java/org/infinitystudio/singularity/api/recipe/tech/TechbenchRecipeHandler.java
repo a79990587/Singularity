@@ -16,6 +16,7 @@ public class TechbenchRecipeHandler extends CommonRecipeHandler {
 
     /**
      * Add a techbench recipe
+     *
      * @param techbenchRecipe The recipe to be added
      * @return Whether the addition is successful
      */
@@ -25,6 +26,7 @@ public class TechbenchRecipeHandler extends CommonRecipeHandler {
 
     /**
      * Get a techbench recipe
+     *
      * @param in The input of the recipe
      * @return The wanted recipe, null if not match any
      */
@@ -34,6 +36,7 @@ public class TechbenchRecipeHandler extends CommonRecipeHandler {
 
     /**
      * Get a techbench recipe by id
+     *
      * @param id The id of the recipe
      * @return The wanted recipe, null if not match any
      */
@@ -43,6 +46,7 @@ public class TechbenchRecipeHandler extends CommonRecipeHandler {
 
     /**
      * Get the array of all exist recipes
+     *
      * @return All exist recipes
      */
     public TechbenchRecipe[] getAllRecipes() {

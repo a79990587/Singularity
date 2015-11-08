@@ -18,17 +18,6 @@
  */
 package org.infinitystudio.singularity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.logging.log4j.Logger;
-import org.infinitystudio.singularity.api.SingularityRegistry;
-import org.infinitystudio.singularity.block.IBlockBase;
-import org.infinitystudio.singularity.block.IBlockContainerBase;
-import org.infinitystudio.singularity.block.SingularityBlock;
-import org.infinitystudio.singularity.block.SingularityBlockContainer;
-import org.infinitystudio.singularity.block.TechbenchBlock;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -36,6 +25,12 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.item.ItemBlock;
+import org.apache.logging.log4j.Logger;
+import org.infinitystudio.singularity.api.SingularityRegistry;
+import org.infinitystudio.singularity.block.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Lasm_Gratel Singularity Mod Main.
@@ -55,27 +50,28 @@ public class Singularity {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-	log = event.getModLog();
+        log = event.getModLog();
 
-	log.debug("[Singularity] Add Blocks...");
-	// Add *ALL* Machine Blocks Here.
-	blocks = new ArrayList<IBlockBase>();
+        log.debug("[Singularity] Add Blocks...");
+        blocks = new ArrayList<IBlockBase>();
 
-	blocks.add(new TechbenchBlock());
+        // Add *ALL* Machine Blocks Here.
 
-	for (IBlockBase block : blocks) {
-	    if (block instanceof IBlockContainerBase) {
-		SingularityBlockContainer b = (SingularityBlockContainer) block;
-		SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
-		SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());
-	    } else {
-		SingularityBlock b = (SingularityBlock) block;
-		SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
-	    }
-	}
+        blocks.add(new TechbenchBlock());
 
-	log.debug("[Singularity] Registring GUI Handler...");
-	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        for (IBlockBase block : blocks) {
+            if (block instanceof IBlockContainerBase) {
+                SingularityBlockContainer b = (SingularityBlockContainer) block;
+                SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
+                SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());
+            } else {
+                SingularityBlock b = (SingularityBlock) block;
+                SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
+            }
+        }
+
+        log.debug("[Singularity] Registring GUI Handler...");
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
     @EventHandler

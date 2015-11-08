@@ -19,7 +19,6 @@
 package org.infinitystudio.singularity.api;
 
 import com.google.common.collect.Lists;
-import org.infinitystudio.singularity.Singularity;
 import org.infinitystudio.singularity.block.MachineBlock;
 
 import java.util.List;

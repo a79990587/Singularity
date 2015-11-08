@@ -34,10 +34,8 @@ public abstract class SingularityBlock extends Block implements IBlockBase {
     /**
      * Instance a block.
      *
-     * @param material
-     *            The material
-     * @param name
-     *            The name of the block
+     * @param material The material
+     * @param name     The name of the block
      */
     public SingularityBlock(Material material, String name, SingularityCreativeTab creativeTabs) {
         super(material);

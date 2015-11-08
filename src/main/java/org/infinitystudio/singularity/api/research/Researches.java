@@ -20,7 +20,7 @@
 package org.infinitystudio.singularity.api.research;
 
 import net.minecraft.util.StatCollector;
-import org.infinitystudio.singularity.SingularityLogger;
+import org.infinitystudio.singularity.Singularity;
 
 import java.util.Random;
 
@@ -32,39 +32,36 @@ public class Researches {
     public static String[] researchTexts;
     public static int researchAmount = 100;
 
-    public static void getAlltext()
-    {
-        for(int i = 0;i<researchAmount;i++) {
-            if(StatCollector.canTranslate("text.research." + i))
-            researchTexts[i] = (StatCollector.translateToLocal("text.research." + i));
+    public static void getAlltext() {
+        for (int i = 0; i < researchAmount; i++) {
+            if (StatCollector.canTranslate("text.research." + i))
+                researchTexts[i] = (StatCollector.translateToLocal("text.research." + i));
             else {
-                SingularityLogger.Log("Total" + i + "Researches Have Benn Got!");
+                Singularity.log.info("Total" + i + "Researches Have Benn Got!");
                 researchTexts = new String[i];
                 return;
             }
         }
     }
 
-    public static void Fuzzy()
-    {
+    public static void Fuzzy() {
         short FuzzyLevel = 10;
         Random r = new Random();
-        for(String str : researchTexts)
-        {
+        for (String str : researchTexts) {
             byte done = 0;
             byte i = 0;
-            if(!(str.length() / FuzzyLevel >= 10)) {
-                 FuzzyLevel = (short)(str.length() / 15);
+            if (!(str.length() / FuzzyLevel >= 10)) {
+                FuzzyLevel = (short) (str.length() / 15);
             }
 
             char[] s = str.toCharArray();
-            while(i < FuzzyLevel) {
+            while (i < FuzzyLevel) {
                 s[r.nextInt(str.length() - 1)] = ' ';
-                i ++;
+                i++;
             }
 
             researchTexts[done] = s.toString();
-            done ++;
+            done++;
         }
     }
 }
