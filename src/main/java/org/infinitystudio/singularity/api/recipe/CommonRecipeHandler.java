@@ -27,41 +27,41 @@ import java.util.Map;
  * Craft progress class.
  */
 public class CommonRecipeHandler {
-    public int totalRecipeId = 0;
+	public int totalRecipeId = 0;
 
-    private Map<ItemStack[], CommonRecipe> recipeList = null;
+	private Map<ItemStack[], CommonRecipe> recipeList = null;
 
-    public CommonRecipeHandler() {
-        recipeList = new HashMap<ItemStack[], CommonRecipe>();
-    }
+	public CommonRecipeHandler() {
+		recipeList = new HashMap<ItemStack[], CommonRecipe>();
+	}
 
-    public boolean addRecipe(CommonRecipe commonRecipe) {
-        if (recipeList.containsKey(commonRecipe.getIn()) || !commonRecipe.available)
-            return false;
+	public boolean addRecipe(CommonRecipe commonRecipe) {
+		if (recipeList.containsKey(commonRecipe.getIn()) || !commonRecipe.available)
+			return false;
 
-        commonRecipe.setId(this.totalRecipeId);
-        recipeList.put(commonRecipe.getIn(), commonRecipe);
-        this.totalRecipeId++;
-        return true;
-    }
+		commonRecipe.setId(this.totalRecipeId);
+		recipeList.put(commonRecipe.getIn(), commonRecipe);
+		this.totalRecipeId++;
+		return true;
+	}
 
-    public CommonRecipe getRecipe(ItemStack[] in) {
-        if (recipeList.containsKey(in))
-            return recipeList.get(in);
-        return null;
-    }
+	public CommonRecipe getRecipe(ItemStack[] in) {
+		if (recipeList.containsKey(in))
+			return recipeList.get(in);
+		return null;
+	}
 
-    public CommonRecipe getRecipeById(int id) {
-        if (this.totalRecipeId < id)
-            return null;
+	public CommonRecipe getRecipeById(int id) {
+		if (this.totalRecipeId < id)
+			return null;
 
-        for (Map.Entry<ItemStack[], CommonRecipe> r : recipeList.entrySet())
-            if (r.getValue().getId() == id)
-                return r.getValue();
-        return null;
-    }
+		for (Map.Entry<ItemStack[], CommonRecipe> r : recipeList.entrySet())
+			if (r.getValue().getId() == id)
+				return r.getValue();
+		return null;
+	}
 
-    public CommonRecipe[] getAllRecipes() {
-        return (CommonRecipe[]) recipeList.values().toArray();
-    }
+	public CommonRecipe[] getAllRecipes() {
+		return (CommonRecipe[]) recipeList.values().toArray();
+	}
 }

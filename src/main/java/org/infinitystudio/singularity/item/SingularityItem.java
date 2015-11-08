@@ -27,20 +27,20 @@ import net.minecraft.item.Item;
  */
 public abstract class SingularityItem extends Item {
 
-    private String name;
+	private String name;
 
-    /**
-     * Instance a Singularity Item.
-     *
-     * @param name The name of the item
-     */
-    public SingularityItem(String name) {
-        this.name = name;
-        this.setUnlocalizedName(name);
-    }
+	/**
+	 * Instance a Singularity Item.
+	 *
+	 * @param name The name of the item
+	 */
+	public SingularityItem(String name) {
+		this.name = name;
+		this.setUnlocalizedName(name);
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
 }

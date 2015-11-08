@@ -26,22 +26,21 @@ import org.infinitystudio.singularity.block.TechbenchBlock;
 
 /**
  * @author Lasm_Gratel
- *
  */
 public class SingularityCreativeTab extends CreativeTabs {
 
-    /**
-     * Initialize the creative tab.
-     */
-    public SingularityCreativeTab(String name) {
-        super(name);
-    }
+	/**
+	 * Initialize the creative tab.
+	 */
+	public SingularityCreativeTab(String name) {
+		super(name);
+	}
 
-    /**
-     * @see net.minecraft.creativetab.CreativeTabs#getTabIconItem()
-     */
-    @Override
-    public Item getTabIconItem() {
-        return new ItemBlock(new TechbenchBlock());
-    }
+	/**
+	 * @see net.minecraft.creativetab.CreativeTabs#getTabIconItem()
+	 */
+	@Override
+	public Item getTabIconItem() {
+		return new ItemBlock(new TechbenchBlock());
+	}
 }

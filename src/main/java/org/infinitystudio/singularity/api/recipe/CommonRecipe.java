@@ -27,66 +27,66 @@ import net.minecraft.item.ItemStack;
  */
 public class CommonRecipe {
 
-    public boolean available;
-    // Unique id
-    private int id;
-    // Input items
-    private ItemStack[] in;
-    // Output items
-    private ItemStack[] out;
+	public boolean available;
+	// Unique id
+	private int id;
+	// Input items
+	private ItemStack[] in;
+	// Output items
+	private ItemStack[] out;
 
-    public CommonRecipe(ItemStack[] in, ItemStack[] out) {
-        this.in = in;
-        this.out = out;
-        available = true;
-    }
+	public CommonRecipe(ItemStack[] in, ItemStack[] out) {
+		this.in = in;
+		this.out = out;
+		available = true;
+	}
 
-    /**
-     * @return The id
-     */
-    public int getId() {
-        return id;
-    }
+	/**
+	 * @return The id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    /**
-     * @param id The id to be set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param id The id to be set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    /**
-     * @return The input items
-     */
-    public ItemStack[] getIn() {
-        return in;
-    }
+	/**
+	 * @return The input items
+	 */
+	public ItemStack[] getIn() {
+		return in;
+	}
 
-    /**
-     * @param in The input items to be set
-     */
-    public void setIn(ItemStack[] in) {
-        this.in = in;
-    }
+	/**
+	 * @param in The input items to be set
+	 */
+	public void setIn(ItemStack[] in) {
+		this.in = in;
+	}
 
-    /**
-     * @return The output items
-     */
-    public ItemStack[] getOut() {
-        return out;
-    }
+	/**
+	 * @return The output items
+	 */
+	public ItemStack[] getOut() {
+		return out;
+	}
 
-    /**
-     * @param out The output items to be set
-     */
-    public void setOut(ItemStack[] out) {
-        this.out = out;
-    }
+	/**
+	 * @param out The output items to be set
+	 */
+	public void setOut(ItemStack[] out) {
+		this.out = out;
+	}
 
-    /**
-     * @return The Handler of this recipe
-     */
-    public Class<? extends CommonRecipeHandler> getHandler() {
-        return CommonRecipeHandler.class;
-    }
+	/**
+	 * @return The Handler of this recipe
+	 */
+	public Class<? extends CommonRecipeHandler> getHandler() {
+		return CommonRecipeHandler.class;
+	}
 }

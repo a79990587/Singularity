@@ -29,39 +29,39 @@ import java.util.Random;
  * @author Darkhighness
  */
 public class Researches {
-    public static String[] researchTexts;
-    public static int researchAmount = 100;
+	public static String[] researchTexts;
+	public static int researchAmount = 100;
 
-    public static void getAlltext() {
-        for (int i = 0; i < researchAmount; i++) {
-            if (StatCollector.canTranslate("text.research." + i))
-                researchTexts[i] = (StatCollector.translateToLocal("text.research." + i));
-            else {
-                Singularity.log.info("Total" + i + "Researches Have Benn Got!");
-                researchTexts = new String[i];
-                return;
-            }
-        }
-    }
+	public static void getAlltext() {
+		for (int i = 0; i < researchAmount; i++) {
+			if (StatCollector.canTranslate("text.research." + i))
+				researchTexts[i] = (StatCollector.translateToLocal("text.research." + i));
+			else {
+				Singularity.log.info("Total" + i + "Researches Have Benn Got!");
+				researchTexts = new String[i];
+				return;
+			}
+		}
+	}
 
-    public static void Fuzzy() {
-        short FuzzyLevel = 10;
-        Random r = new Random();
-        for (String str : researchTexts) {
-            byte done = 0;
-            byte i = 0;
-            if (!(str.length() / FuzzyLevel >= 10)) {
-                FuzzyLevel = (short) (str.length() / 15);
-            }
+	public static void Fuzzy() {
+		short FuzzyLevel = 10;
+		Random r = new Random();
+		for (String str : researchTexts) {
+			byte done = 0;
+			byte i = 0;
+			if (!(str.length() / FuzzyLevel >= 10)) {
+				FuzzyLevel = (short) (str.length() / 15);
+			}
 
-            char[] s = str.toCharArray();
-            while (i < FuzzyLevel) {
-                s[r.nextInt(str.length() - 1)] = ' ';
-                i++;
-            }
+			char[] s = str.toCharArray();
+			while (i < FuzzyLevel) {
+				s[r.nextInt(str.length() - 1)] = ' ';
+				i++;
+			}
 
-            researchTexts[done] = s.toString();
-            done++;
-        }
-    }
+			researchTexts[done] = s.toString();
+			done++;
+		}
+	}
 }

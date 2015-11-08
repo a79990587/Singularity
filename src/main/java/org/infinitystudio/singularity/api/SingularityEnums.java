@@ -19,25 +19,25 @@
 package org.infinitystudio.singularity.api;
 
 public class SingularityEnums {
-    public enum NodeType {
-        NORMAL, // 正常
-        WEAK, // 虚弱
-        OVERLOAD, // 超载
-        REVERSE, // 逆向
-        FEEDBACK, // 反噬
-        RECOVERY, // 恢复
-    }
+	public enum NodeType {
+		NORMAL, // 正常
+		WEAK, // 虚弱
+		OVERLOAD, // 超载
+		REVERSE, // 逆向
+		FEEDBACK, // 反噬
+		RECOVERY, // 恢复
+	}
 
-    public enum CeremonyType {
+	public enum CeremonyType {
 
-    }
+	}
 
-    public enum OriginCoreType {
-        COMMON, // 普遍
-        RARE, // 稀有
-        EPIC, // 史诗
-        LEGEND, // 传说
-        UNKNOWN, // 未知
-        CREATIVE,// 创造
-    }
+	public enum OriginCoreType {
+		COMMON, // 普遍
+		RARE, // 稀有
+		EPIC, // 史诗
+		LEGEND, // 传说
+		UNKNOWN, // 未知
+		CREATIVE,// 创造
+	}
 }

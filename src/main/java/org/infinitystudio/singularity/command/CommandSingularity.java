@@ -27,36 +27,36 @@ import net.minecraft.command.WrongUsageException;
  */
 public class CommandSingularity extends CommandBase {
 
-    /**
-     * Return command name of this command.
-     *
-     * @see net.minecraft.command.ICommand#getCommandName()
-     */
-    @Override
-    public String getCommandName() {
-        return "singularity";
-    }
+	/**
+	 * Return command name of this command.
+	 *
+	 * @see net.minecraft.command.ICommand#getCommandName()
+	 */
+	@Override
+	public String getCommandName() {
+		return "singularity";
+	}
 
-    /**
-     * Return the required permission level for this command.
-     */
-    public int getRequiredPermissionLevel() {
-        return 0;
-    }
+	/**
+	 * Return the required permission level for this command.
+	 */
+	public int getRequiredPermissionLevel() {
+		return 0;
+	}
 
-    @Override
-    public String getCommandUsage(ICommandSender commandsender) {
-        return "commands.singularity.usage";
-    }
+	@Override
+	public String getCommandUsage(ICommandSender commandsender) {
+		return "commands.singularity.usage";
+	}
 
-    @Override
-    public void processCommand(ICommandSender commandsender, String[] args) {
-        if (args.length > 2) {
-            throw new WrongUsageException("commands.singularity.usage");
-        } else {
-            if (args[0] == "version") {
-            }
-        }
-    }
+	@Override
+	public void processCommand(ICommandSender commandsender, String[] args) {
+		if (args.length > 2) {
+			throw new WrongUsageException("commands.singularity.usage");
+		} else {
+			if (args[0] == "version") {
+			}
+		}
+	}
 
 }

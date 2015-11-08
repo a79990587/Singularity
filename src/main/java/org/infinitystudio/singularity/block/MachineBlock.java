@@ -27,58 +27,57 @@ import org.infinitystudio.singularity.api.resource.ResourcePacket;
  * @author Lasm_Gratel
  */
 public abstract class MachineBlock extends SingularityBlock {
-    private ResourceNetConnector connector;
-    private boolean isWorking;
+	private ResourceNetConnector connector;
+	private boolean isWorking;
 
-    /**
-     * Instance of a machine block.
-     *
-     * @param material        The material
-     * @param name            The name of the block.
-     * @param creativeTab     The creative tab to be set.
-     * @param produceResource The resource it produces per tick. Can be null.
-     * @param consumeResource The resource it produces per tick. Can be null.
-     * @param canProduce      If it can produce resource. Once set to false, parameter
-     *                        produceResource will not work.
-     */
-    public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab,
-                        ResourcePacket produceResource, ResourcePacket consumeResource, boolean canProduce) {
-        super(material, name, creativeTab);
-        connector = new ResourceNetConnector();
-        connector.setProduceResource(produceResource);
-        connector.setConsumeResource(consumeResource);
-        connector.setCanProduce(canProduce);
-    }
-
-
-    /**
-     * @return connector
-     */
-    public ResourceNetConnector getConnector() {
-        return connector;
-    }
+	/**
+	 * Instance of a machine block.
+	 *
+	 * @param material        The material
+	 * @param name            The name of the block.
+	 * @param creativeTab     The creative tab to be set.
+	 * @param produceResource The resource it produces per tick. Can be null.
+	 * @param consumeResource The resource it produces per tick. Can be null.
+	 * @param canProduce      If it can produce resource. Once set to false, parameter
+	 *                        produceResource will not work.
+	 */
+	public MachineBlock(Material material, String name, SingularityCreativeTab creativeTab, ResourcePacket produceResource, ResourcePacket consumeResource, boolean canProduce) {
+		super(material, name, creativeTab);
+		connector = new ResourceNetConnector();
+		connector.setProduceResource(produceResource);
+		connector.setConsumeResource(consumeResource);
+		connector.setCanProduce(canProduce);
+	}
 
 
-    /**
-     * @param connector 要设置的 connector
-     */
-    public void setConnector(ResourceNetConnector connector) {
-        this.connector = connector;
-    }
+	/**
+	 * @return connector
+	 */
+	public ResourceNetConnector getConnector() {
+		return connector;
+	}
 
 
-    /**
-     * @return isWorking
-     */
-    public boolean isWorking() {
-        return isWorking;
-    }
+	/**
+	 * @param connector 要设置的 connector
+	 */
+	public void setConnector(ResourceNetConnector connector) {
+		this.connector = connector;
+	}
 
 
-    /**
-     * @param isWorking 要设置的 isWorking
-     */
-    public void setWorking(boolean isWorking) {
-        this.isWorking = isWorking;
-    }
+	/**
+	 * @return isWorking
+	 */
+	public boolean isWorking() {
+		return isWorking;
+	}
+
+
+	/**
+	 * @param isWorking 要设置的 isWorking
+	 */
+	public void setWorking(boolean isWorking) {
+		this.isWorking = isWorking;
+	}
 }

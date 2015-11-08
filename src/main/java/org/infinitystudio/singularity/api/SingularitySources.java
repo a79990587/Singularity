@@ -30,11 +30,11 @@ import java.util.List;
  * @author Lasm_Gratel
  */
 public class SingularitySources {
-    private static List<Thread> threads = Lists.newArrayList();
-    private static List<MachineBlock> machines = Lists.newArrayList();
-    private static int source = 0;
+	private static List<Thread> threads = Lists.newArrayList();
+	private static List<MachineBlock> machines = Lists.newArrayList();
+	private static int source = 0;
 
-    public static void registerMachine(final MachineBlock block) {
-        machines.add(block);
-    }
+	public static void registerMachine(final MachineBlock block) {
+		machines.add(block);
+	}
 }

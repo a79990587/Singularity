@@ -23,27 +23,24 @@ import org.infinitystudio.singularity.Singularity;
 
 /**
  * @author Lasm_Gratel
- *
  */
 public class SubCommandProgresser extends ArgsProgresser {
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static String getString(String[] args, String option)
-            throws ArgsNotFoundException {
-        for (int i = 0; i < args.length; i++) {
-            if (args[i].equalsIgnoreCase(option)) {
-                return args[i];
-            } else {
-                Singularity.log.error(new ArgsNotFoundException());
-            }
-        }
-        return null;
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static String getString(String[] args, String option) throws ArgsNotFoundException {
+		for (int i = 0; i < args.length; i++) {
+			if (args[i].equalsIgnoreCase(option)) {
+				return args[i];
+			} else {
+				Singularity.log.error(new ArgsNotFoundException());
+			}
+		}
+		return null;
+	}
 }

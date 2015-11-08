@@ -21,52 +21,50 @@ package org.infinitystudio.utils;
 
 /**
  * @author Lasm_Gratel
- *
  */
 public class ArgsNotFoundException extends Exception {
 
-    /**
-     *
-     */
-    public ArgsNotFoundException() {
-        // TODO 自动生成的构造函数存根
-    }
+	/**
+	 *
+	 */
+	public ArgsNotFoundException() {
+		// TODO 自动生成的构造函数存根
+	}
 
-    /**
-     * @param message
-     */
-    public ArgsNotFoundException(String message) {
-        super(message);
-        // TODO 自动生成的构造函数存根
-    }
+	/**
+	 * @param message
+	 */
+	public ArgsNotFoundException(String message) {
+		super(message);
+		// TODO 自动生成的构造函数存根
+	}
 
-    /**
-     * @param cause
-     */
-    public ArgsNotFoundException(Throwable cause) {
-        super(cause);
-        // TODO 自动生成的构造函数存根
-    }
+	/**
+	 * @param cause
+	 */
+	public ArgsNotFoundException(Throwable cause) {
+		super(cause);
+		// TODO 自动生成的构造函数存根
+	}
 
-    /**
-     * @param message
-     * @param cause
-     */
-    public ArgsNotFoundException(String message, Throwable cause) {
-        super(message, cause);
-        // TODO 自动生成的构造函数存根
-    }
+	/**
+	 * @param message
+	 * @param cause
+	 */
+	public ArgsNotFoundException(String message, Throwable cause) {
+		super(message, cause);
+		// TODO 自动生成的构造函数存根
+	}
 
-    /**
-     * @param message
-     * @param cause
-     * @param enableSuppression
-     * @param writableStackTrace
-     */
-    public ArgsNotFoundException(String message, Throwable cause, boolean enableSuppression,
-                                 boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-        // TODO 自动生成的构造函数存根
-    }
+	/**
+	 * @param message
+	 * @param cause
+	 * @param enableSuppression
+	 * @param writableStackTrace
+	 */
+	public ArgsNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO 自动生成的构造函数存根
+	}
 
 }

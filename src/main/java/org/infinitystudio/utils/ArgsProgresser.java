@@ -23,136 +23,123 @@ import org.infinitystudio.singularity.Singularity;
 
 /**
  * @author Lasm_Gratel
- *
  */
 public class ArgsProgresser {
 
-    /**
-     * Return a number of option.
-     * (like "--int 1" return 1)
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static int getInt(String[] args, String option)
-            throws ArgsNotFoundException, ArgsTypeErrorException {
-        try {
-            return Integer.parseInt(getString(args, option));
-        } catch (NumberFormatException ex) {
-            Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
-            return Integer.MIN_VALUE;
-        }
-    }
+	/**
+	 * Return a number of option.
+	 * (like "--int 1" return 1)
+	 *
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static int getInt(String[] args, String option) throws ArgsNotFoundException, ArgsTypeErrorException {
+		try {
+			return Integer.parseInt(getString(args, option));
+		} catch (NumberFormatException ex) {
+			Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
+			return Integer.MIN_VALUE;
+		}
+	}
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static short getShort(String[] args, String option)
-            throws ArgsNotFoundException, ArgsTypeErrorException {
-        try {
-            return Short.parseShort(getString(args, option));
-        } catch (NumberFormatException ex) {
-            Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
-            return Short.MIN_VALUE;
-        }
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static short getShort(String[] args, String option) throws ArgsNotFoundException, ArgsTypeErrorException {
+		try {
+			return Short.parseShort(getString(args, option));
+		} catch (NumberFormatException ex) {
+			Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
+			return Short.MIN_VALUE;
+		}
+	}
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static float getFloat(String[] args, String option)
-            throws ArgsNotFoundException, ArgsTypeErrorException {
-        try {
-            return Float.parseFloat(getString(args, option));
-        } catch (NumberFormatException ex) {
-            Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
-            return Float.MIN_VALUE;
-        }
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static float getFloat(String[] args, String option) throws ArgsNotFoundException, ArgsTypeErrorException {
+		try {
+			return Float.parseFloat(getString(args, option));
+		} catch (NumberFormatException ex) {
+			Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
+			return Float.MIN_VALUE;
+		}
+	}
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static double getDouble(String[] args, String option)
-            throws ArgsNotFoundException, ArgsTypeErrorException {
-        try {
-            return Double.parseDouble(getString(args, option));
-        } catch (NumberFormatException ex) {
-            Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
-            return Double.MIN_VALUE;
-        }
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static double getDouble(String[] args, String option) throws ArgsNotFoundException, ArgsTypeErrorException {
+		try {
+			return Double.parseDouble(getString(args, option));
+		} catch (NumberFormatException ex) {
+			Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
+			return Double.MIN_VALUE;
+		}
+	}
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static boolean getBoolean(String[] args, String option)
-            throws ArgsNotFoundException, ArgsTypeErrorException {
-        try {
-            return Boolean.parseBoolean(getString(args, option));
-        } catch (NumberFormatException ex) {
-            Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
-            return false;
-        }
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static boolean getBoolean(String[] args, String option) throws ArgsNotFoundException, ArgsTypeErrorException {
+		try {
+			return Boolean.parseBoolean(getString(args, option));
+		} catch (NumberFormatException ex) {
+			Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
+			return false;
+		}
+	}
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static Class getClass(String[] args, String option)
-            throws ArgsNotFoundException, ArgsTypeErrorException {
-        try {
-            return Class.forName(getString(args, option));
-        } catch (ClassNotFoundException ex) {
-            Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
-            return null;
-        }
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static Class getClass(String[] args, String option) throws ArgsNotFoundException, ArgsTypeErrorException {
+		try {
+			return Class.forName(getString(args, option));
+		} catch (ClassNotFoundException ex) {
+			Singularity.log.error(new ArgsTypeErrorException("Args Type Error:" + ex.getLocalizedMessage()));
+			return null;
+		}
+	}
 
-    /**
-     *
-     * @param args
-     * @param option
-     * @return param
-     * @throws ArgsNotFoundException
-     * @throws ArgsTypeErrorException
-     */
-    public static String getString(String[] args, String option)
-            throws ArgsNotFoundException {
-        for (int i = 0; i < args.length; i++) {
-            if (args[i].equalsIgnoreCase("--" + option)) {
-                return args[i + 1];
-            } else {
-                Singularity.log.error(new ArgsNotFoundException());
-            }
-        }
-        return null;
-    }
+	/**
+	 * @param args
+	 * @param option
+	 * @return param
+	 * @throws ArgsNotFoundException
+	 * @throws ArgsTypeErrorException
+	 */
+	public static String getString(String[] args, String option) throws ArgsNotFoundException {
+		for (int i = 0; i < args.length; i++) {
+			if (args[i].equalsIgnoreCase("--" + option)) {
+				return args[i + 1];
+			} else {
+				Singularity.log.error(new ArgsNotFoundException());
+			}
+		}
+		return null;
+	}
 }

@@ -11,35 +11,35 @@ import org.infinitystudio.singularity.api.resource.ResourcePacket;
  */
 public class TechbenchRecipe extends CommonRecipe {
 
-    ResourcePacket cost;
+	ResourcePacket cost;
 
-    /**
-     * Initialisation of a techbench recipe.
-     *
-     * @param in   Input ItemStack
-     * @param out  Output ItemStack
-     * @param cost Cost resource
-     */
-    TechbenchRecipe(ItemStack[] in, ItemStack[] out, ResourcePacket cost) {
-        super(in, out);
-        this.cost = cost;
-    }
+	/**
+	 * Initialisation of a techbench recipe.
+	 *
+	 * @param in   Input ItemStack
+	 * @param out  Output ItemStack
+	 * @param cost Cost resource
+	 */
+	TechbenchRecipe(ItemStack[] in, ItemStack[] out, ResourcePacket cost) {
+		super(in, out);
+		this.cost = cost;
+	}
 
-    /**
-     * Get the cost.
-     *
-     * @return The cost.
-     */
-    public ResourcePacket getCost() {
-        return cost;
-    }
+	/**
+	 * Get the cost.
+	 *
+	 * @return The cost.
+	 */
+	public ResourcePacket getCost() {
+		return cost;
+	}
 
-    /**
-     * Set the cost.
-     *
-     * @param cost The cost.
-     */
-    public void setCost(ResourcePacket cost) {
-        this.cost = cost;
-    }
+	/**
+	 * Set the cost.
+	 *
+	 * @param cost The cost.
+	 */
+	public void setCost(ResourcePacket cost) {
+		this.cost = cost;
+	}
 }

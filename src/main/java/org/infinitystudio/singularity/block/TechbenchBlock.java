@@ -23,7 +23,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import org.infinitystudio.singularity.Singularity;
-import org.infinitystudio.singularity.SingularityCreativeTab;
 import org.infinitystudio.singularity.api.resource.Resource;
 import org.infinitystudio.singularity.api.resource.Resource.ResourceType;
 import org.infinitystudio.singularity.api.resource.ResourcePacket;
@@ -33,28 +32,27 @@ import org.infinitystudio.singularity.tileentity.TileEntityTechbench;
  * @author Lasm_Gratel
  */
 public class TechbenchBlock extends MachineBlockContainer {
-    /**
-     * Constructor of the special workbench
-     */
-    public TechbenchBlock() {
-        super(Material.iron, "machineTechbench", Singularity.creativeTabs.get("tabSingularity"),
-                null, new ResourcePacket(new Resource(ResourceType.test1, 100)), false);
-        this.setHarvestLevel("", 2);
-    }
+	/**
+	 * Constructor of the special workbench
+	 */
+	public TechbenchBlock() {
+		super(Material.iron, "machineTechbench", Singularity.creativeTabs.get("tabSingularity"), null, new ResourcePacket(new Resource(ResourceType.test1, 100)), false);
+		this.setHarvestLevel("", 2);
+	}
 
-    /**
-     * @see MachineBlockContainer#createNewTileEntity(net.minecraft.world.World, int)
-     */
-    @Override
-    public TileEntity createNewTileEntity(World world, int p_149915_2_) {
-        return new TileEntityTechbench();
-    }
+	/**
+	 * @see MachineBlockContainer#createNewTileEntity(net.minecraft.world.World, int)
+	 */
+	@Override
+	public TileEntity createNewTileEntity(World world, int p_149915_2_) {
+		return new TileEntityTechbench();
+	}
 
-    /**
-     * @return TileEntityTechbench.class
-     * @see MachineBlockContainer#getTileEntityClass()
-     */
-    public Class<? extends TileEntity> getTileEntityClass() {
-        return TileEntityTechbench.class;
-    }
+	/**
+	 * @return TileEntityTechbench.class
+	 * @see MachineBlockContainer#getTileEntityClass()
+	 */
+	public Class<? extends TileEntity> getTileEntityClass() {
+		return TileEntityTechbench.class;
+	}
 }

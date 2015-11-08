@@ -37,51 +37,51 @@ import java.util.Map;
  */
 public class SingularityRegistry extends GameRegistry {
 
-    private static Map<Class<? extends CommonRecipeHandler>, CommonRecipeHandler> handlerMap = null;
+	private static Map<Class<? extends CommonRecipeHandler>, CommonRecipeHandler> handlerMap = null;
 
-    static {
-        handlerMap = new HashMap<Class<? extends CommonRecipeHandler>, CommonRecipeHandler>();
-        handlerMap.put(CommonRecipeHandler.class, new CommonRecipeHandler());
-        handlerMap.put(TechbenchRecipeHandler.class, new TechbenchRecipeHandler());
-    }
+	static {
+		handlerMap = new HashMap<Class<? extends CommonRecipeHandler>, CommonRecipeHandler>();
+		handlerMap.put(CommonRecipeHandler.class, new CommonRecipeHandler());
+		handlerMap.put(TechbenchRecipeHandler.class, new TechbenchRecipeHandler());
+	}
 
-    /**
-     * To register an ingot with OreDictionary.
-     *
-     * @param Ingot The object to be registered.
-     */
-    public static void registerIngotWithOreDictionary(SingularityItem Ingot) {
-        OreDictionary.registerOre(Ingot.getName(), Ingot);
-    }
+	/**
+	 * To register an ingot with OreDictionary.
+	 *
+	 * @param Ingot The object to be registered.
+	 */
+	public static void registerIngotWithOreDictionary(SingularityItem Ingot) {
+		OreDictionary.registerOre(Ingot.getName(), Ingot);
+	}
 
-    /**
-     * To register an block with OreDictionary.
-     *
-     * @param Block The object to be registered.
-     */
-    public static void registerBlockWithOreDictionary(SingularityBlock Block) {
-        OreDictionary.registerOre(Block.getName(), Block);
-    }
+	/**
+	 * To register an block with OreDictionary.
+	 *
+	 * @param Block The object to be registered.
+	 */
+	public static void registerBlockWithOreDictionary(SingularityBlock Block) {
+		OreDictionary.registerOre(Block.getName(), Block);
+	}
 
-    /**
-     * To register a recipe.
-     *
-     * @param commonRecipe The recipe object to be registered.
-     * @return Whether the registration is succeeded (fail if and only if there
-     * are conflict recipes).
-     */
-    public static boolean registerRecipe(CommonRecipe commonRecipe) {
-        return handlerMap.get(commonRecipe.getHandler()).addRecipe(commonRecipe);
-    }
+	/**
+	 * To register a recipe.
+	 *
+	 * @param commonRecipe The recipe object to be registered.
+	 * @return Whether the registration is succeeded (fail if and only if there
+	 * are conflict recipes).
+	 */
+	public static boolean registerRecipe(CommonRecipe commonRecipe) {
+		return handlerMap.get(commonRecipe.getHandler()).addRecipe(commonRecipe);
+	}
 
-    /**
-     * To get the possible recipe for the input items.
-     *
-     * @param c      The class of RecipeHandler of the wanted type.
-     * @param itemIn The item used in the recipe.
-     * @return The recipe object.
-     */
-    public static CommonRecipe getRecipe(Class<? extends CommonRecipeHandler> c, ItemStack[] itemIn) {
-        return handlerMap.get(c).getRecipe(itemIn);
-    }
+	/**
+	 * To get the possible recipe for the input items.
+	 *
+	 * @param c      The class of RecipeHandler of the wanted type.
+	 * @param itemIn The item used in the recipe.
+	 * @return The recipe object.
+	 */
+	public static CommonRecipe getRecipe(Class<? extends CommonRecipeHandler> c, ItemStack[] itemIn) {
+		return handlerMap.get(c).getRecipe(itemIn);
+	}
 }

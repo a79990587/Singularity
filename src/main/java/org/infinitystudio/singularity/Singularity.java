@@ -36,6 +36,7 @@ import java.util.Map;
 
 /**
  * Singularity Mod Main.
+ *
  * @author Lasm_Gratel
  * @author Blealtan
  * @author DarkHighness
@@ -43,67 +44,69 @@ import java.util.Map;
  */
 @Mod(modid = Singularity.MODID, name = Singularity.NAME, version = Singularity.VERSION)
 public class Singularity {
-    public static final String MODID = "singularity";
-    public static final String NAME = "Singularity";
-    public static final String VERSION = "1.0";
+	public static final String MODID = "singularity";
+	public static final String NAME = "Singularity";
+	public static final String VERSION = "1.0";
 
-    // Instance of this mod
-    @Instance("Singularity")
-    public static Singularity instance;
+	// Instance of this mod
+	@Instance("Singularity")
+	public static Singularity instance;
 
-    // Logger of this mod
-    public static Logger log;
+	// Logger of this mod
+	public static Logger log;
 
-    // Blocks of this mod
-    public static List<IBlockBase> blocks;
+	// Blocks of this mod
+	public static List<IBlockBase> blocks;
 
-    // CreativeTabs of this mod
-    public static Map<String, SingularityCreativeTab> creativeTabs;
+	// CreativeTabs of this mod
+	public static Map<String, SingularityCreativeTab> creativeTabs;
 
-    /**
-     * Pre-Initialization Event of FML.
-     * Will happen in Pre-Initialization State.
-     * @param event 
-     */
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-	
-	// Create creative tab,
-        creativeTabs = new HashMap<String, SingularityCreativeTab>();
-        creativeTabs.put("tabSingularity", new SingularityCreativeTab("tabSingularity"));
-        
-        // Get log of the Forge.
-        log = event.getModLog();
+	/**
+	 * Pre-Initialization Event of FML.
+	 * Will happen in Pre-Initialization State.
+	 *
+	 * @param event
+	 */
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
 
-        log.debug("[Singularity] Add Blocks...");
-        blocks = new ArrayList<IBlockBase>();
+		// Create creative tab,
+		creativeTabs = new HashMap<String, SingularityCreativeTab>();
+		creativeTabs.put("tabSingularity", new SingularityCreativeTab("tabSingularity"));
 
-        // Add *ALL* Machine Blocks Here.
-        blocks.add(new TechbenchBlock());
+		// Get log of the Forge.
+		log = event.getModLog();
 
-        // Registry All block in Singularity.
-        for (IBlockBase block : blocks) {
-            if (block instanceof IBlockContainerBase) {
-                SingularityBlockContainer b = (SingularityBlockContainer) block;
-                SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
-                SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());
-            } else {
-                SingularityBlock b = (SingularityBlock) block;
-                SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
-            }
-        }
+		log.debug("[Singularity] Add Blocks...");
+		blocks = new ArrayList<IBlockBase>();
 
-        log.debug("[Singularity] Registring GUI Handler...");
-        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
-    }
+		// Add *ALL* Machine Blocks Here.
+		blocks.add(new TechbenchBlock());
 
-    /**
-     * Initialization Event of FML.
-     * Will happen in Initialization State.
-     * @param event 
-     */
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-	//TODO Register Machine Custom Recipes
-    }
+		// Registry All block in Singularity.
+		for (IBlockBase block : blocks) {
+			if (block instanceof IBlockContainerBase) {
+				SingularityBlockContainer b = (SingularityBlockContainer) block;
+				SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
+				SingularityRegistry.registerTileEntity(b.getTileEntityClass(), b.getName());
+			} else {
+				SingularityBlock b = (SingularityBlock) block;
+				SingularityRegistry.registerBlock(b, ItemBlock.class, b.getName());
+			}
+		}
+
+		log.debug("[Singularity] Registring GUI Handler...");
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+	}
+
+	/**
+	 * Initialization Event of FML.
+	 * Will happen in Initialization State.
+	 *
+	 * @param event
+	 */
+	@EventHandler
+	public void init(FMLInitializationEvent event) {
+		//TODO Register Machine Custom Recipes
+	}
 }
