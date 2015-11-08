@@ -18,6 +18,8 @@
 */
 package org.infinitystudio.utils;
 
+import org.infinitystudio.singularity.Singularity;
+
 /**
  * @author Lasm_Gratel
  *
@@ -38,7 +40,7 @@ public class SubCommandProgresser extends ArgsProgresser {
 	    if(args[i].equalsIgnoreCase(option)) {
 		return args[i];
 	    } else {
-		throw new ArgsNotFoundException();
+		Singularity.log.error(new ArgsNotFoundException());
 	    }
 	}
 	return null;

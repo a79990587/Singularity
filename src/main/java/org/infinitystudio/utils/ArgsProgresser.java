@@ -18,6 +18,8 @@
 */
 package org.infinitystudio.utils;
 
+import org.infinitystudio.singularity.Singularity;
+
 /**
  * @author Lasm_Gratel
  *
@@ -38,7 +40,8 @@ public class ArgsProgresser {
 	try {
 	    return Integer.parseInt(getString(args, option));
 	} catch(NumberFormatException ex) {
-	    throw new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage());
+	    Singularity.log.error(new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage()));
+	    return Integer.MIN_VALUE;
 	}
     }
     /**
@@ -54,7 +57,8 @@ public class ArgsProgresser {
 	try {
 	    return Short.parseShort(getString(args, option));
 	} catch(NumberFormatException ex) {
-	    throw new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage());
+	    Singularity.log.error(new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage()));
+	    return Short.MIN_VALUE;
 	}
     }
     
@@ -71,7 +75,8 @@ public class ArgsProgresser {
 	try {
 	    return Float.parseFloat(getString(args, option));
 	} catch(NumberFormatException ex) {
-	    throw new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage());
+	    Singularity.log.error(new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage()));
+	    return Float.MIN_VALUE;
 	}
     }
     
@@ -88,7 +93,8 @@ public class ArgsProgresser {
 	try {
 	    return Double.parseDouble(getString(args, option));
 	} catch(NumberFormatException ex) {
-	    throw new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage());
+	    Singularity.log.error(new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage()));
+	    return Double.MIN_VALUE;
 	}
     }
     
@@ -105,7 +111,8 @@ public class ArgsProgresser {
 	try {
 	    return Boolean.parseBoolean(getString(args, option));
 	} catch(NumberFormatException ex) {
-	    throw new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage());
+	    Singularity.log.error(new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage()));
+	    return false;
 	}
     }
     
@@ -122,7 +129,8 @@ public class ArgsProgresser {
 	try {
 	    return Class.forName(getString(args, option));
 	} catch (ClassNotFoundException ex) {
-	    throw new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage());
+	    Singularity.log.error(new ArgsTypeErrorException("Args Type Error:"+ex.getLocalizedMessage()));
+	    return null;
 	}
     }
     
@@ -140,7 +148,7 @@ public class ArgsProgresser {
 	    if(args[i].equalsIgnoreCase("--" + option)) {
 		return args[i+1];
 	    } else {
-		throw new ArgsNotFoundException();
+		Singularity.log.error(new ArgsNotFoundException());
 	    }
 	}
 	return null;
