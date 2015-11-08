@@ -21,6 +21,7 @@ package org.infinitystudio.singularity.api.recipe;
 import com.google.common.collect.Maps;
 import net.minecraft.item.ItemStack;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,7 +30,11 @@ import java.util.Map;
 public class CommonRecipeHandler {
     public int totalRecipeId = 0;
 
-    private Map<ItemStack[], CommonRecipe> recipeList = Maps.newHashMap();
+    private Map<ItemStack[], CommonRecipe> recipeList = null;
+
+    public CommonRecipeHandler() {
+        recipeList = new HashMap<ItemStack[], CommonRecipe>();
+    }
 
     public boolean addRecipe(CommonRecipe commonRecipe) {
         if (recipeList.containsKey(commonRecipe.getIn()) || !commonRecipe.available)

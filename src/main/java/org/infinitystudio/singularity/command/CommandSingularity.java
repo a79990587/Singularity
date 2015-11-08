@@ -62,7 +62,7 @@ public class CommandSingularity extends CommandBase {
     @Override
     public void processCommand(ICommandSender commandsender, String[] args) {
         if (args.length > 2) {
-            throw new WrongUsageException("commands.singularity.usage", new Object[0]);
+            throw new WrongUsageException("commands.singularity.usage");
         } else {
             if(args[0]=="version") {
             }

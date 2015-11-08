@@ -51,11 +51,11 @@ public abstract class MachineBlockContainer extends SingularityBlockContainer {
      * @param canProduce If it can produce resource. Once set to false, parameter produceResource will not work.
      */
     public MachineBlockContainer(Material material, String name, SingularityCreativeTab creativeTab,
-                        Resource[] produceResource, Resource[] consumeResource, boolean canProduce) {
+                        ResourcePacket produceResource, ResourcePacket consumeResource, boolean canProduce) {
         super(material, name, creativeTab);
-        connector.produceResource_$eq(new ResourcePacket(produceResource));
-        connector.consumeResource_$eq(new ResourcePacket(consumeResource));
-        connector.canProduce_$eq(canProduce);
+        connector.setProduceResource(produceResource);
+        connector.setConsumeResource(consumeResource);
+        connector.setCanProduce(canProduce);
     }
     
     private void dropItems(World world, int x, int y, int z){

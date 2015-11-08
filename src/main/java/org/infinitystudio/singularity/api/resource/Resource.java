@@ -25,49 +25,55 @@ package org.infinitystudio.singularity.api.resource;
  */
 public class Resource {
     private int quantity;
-    private SourceType type;
+    private ResourceType type;
 
     /**
      * @param type Type of the quantity
-     * @param quantity Resource num
+     * @param quantity Resource quantity, must be positive
      */
-    public Resource(SourceType type, int quantity) {
+    public Resource(ResourceType type, int quantity) {
         this.type = type;
+        if (quantity < 0) quantity = 0;
         this.quantity = quantity;
     }
 
     /**
-     * @return quantity
+     * @return quantity, positive
      */
     public int getQuantity() {
         return quantity;
     }
 
     /**
-     * @param quantity 要设置的 quantity
+     * @param quantity The quantity to be set, must be positive
+     * @return The resource object itself
      */
-    public void setQuantity(int quantity) {
+    public Resource setQuantity(int quantity) {
+        if (quantity < 0) quantity = 0;
         this.quantity = quantity;
+        return this;
     }
 
     /**
      * @return type
      */
-    public SourceType getType() {
+    public ResourceType getType() {
         return type;
     }
 
     /**
-     * @param type 要设置的 type
+     * @param type The type to be set
+     * @return The resource object itself
      */
-    public void setType(SourceType type) {
+    public Resource setType(ResourceType type) {
         this.type = type;
+        return this;
     }
 
     /**
      *
      */
-    public enum SourceType {
+    public enum ResourceType {
         test1, test2, test3, test4, test5, test6
     }
 }

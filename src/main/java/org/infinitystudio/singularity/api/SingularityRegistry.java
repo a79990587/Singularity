@@ -23,12 +23,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import org.infinitystudio.singularity.api.recipe.CommonRecipe;
 import org.infinitystudio.singularity.api.recipe.CommonRecipeHandler;
-import org.infinitystudio.singularity.api.recipe.tech.TechbenchRecipe;
 import org.infinitystudio.singularity.api.recipe.tech.TechbenchRecipeHandler;
-import org.infinitystudio.singularity.api.recipe.workbench.WorkbenchRecipe;
-import org.infinitystudio.singularity.api.recipe.workbench.WorkbenchRecipeHandler;
 import org.infinitystudio.singularity.block.SingularityBlock;
 import org.infinitystudio.singularity.item.SingularityItem;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Singularity Mod's Registery.
@@ -37,9 +37,12 @@ import org.infinitystudio.singularity.item.SingularityItem;
  */
 public class SingularityRegistry extends GameRegistry {
 
-    private static TechbenchRecipeHandler techbenchRecipeHandler = new TechbenchRecipeHandler();
-    private static WorkbenchRecipeHandler workbenchRecipeHandler = new WorkbenchRecipeHandler();
-    private static CommonRecipeHandler commonRecipeHandler = new CommonRecipeHandler();
+    private static Map<Class<? extends CommonRecipeHandler>, CommonRecipeHandler> handlerMap = null;
+    static {
+        handlerMap = new HashMap<Class<? extends CommonRecipeHandler>, CommonRecipeHandler>();
+        handlerMap.put(CommonRecipeHandler.class, new CommonRecipeHandler());
+        handlerMap.put(TechbenchRecipeHandler.class, new TechbenchRecipeHandler());
+    }
 
     /**
      * To register an ingot with OreDictionary.
@@ -67,22 +70,17 @@ public class SingularityRegistry extends GameRegistry {
      * are conflict recipes).
      */
     public static boolean registerRecipe(CommonRecipe commonRecipe) {
-        if (commonRecipe instanceof WorkbenchRecipe)
-            return workbenchRecipeHandler.addRecipe((WorkbenchRecipe) commonRecipe);
-        else if (commonRecipe instanceof TechbenchRecipe)
-            return techbenchRecipeHandler.addRecipe((TechbenchRecipe) commonRecipe);
-        else
-            return commonRecipeHandler.addRecipe(commonRecipe);
+        return handlerMap.get(commonRecipe.getHandler()).addRecipe(commonRecipe);
     }
 
     /**
      * To get the possible recipe for the input items.
      *
+     * @param c The class of RecipeHandler of the wanted type.
      * @param itemIn The item used in the recipe.
      * @return The recipe object.
      */
-    public static TechbenchRecipe getTechbenchRecipe(ItemStack[] itemIn) {
-        return techbenchRecipeHandler.getRecipe(itemIn);
+    public static CommonRecipe getRecipe(Class<? extends CommonRecipeHandler> c, ItemStack[] itemIn) {
+        return handlerMap.get(c).getRecipe(itemIn);
     }
-
 }

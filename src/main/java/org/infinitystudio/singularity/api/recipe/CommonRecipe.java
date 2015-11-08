@@ -28,11 +28,11 @@ import net.minecraft.item.ItemStack;
 public class CommonRecipe {
 
     public boolean available;
-    // 系统分配 合成表唯一ID
+    // Unique id
     private int id;
-    // 输入的物品
+    // Input items
     private ItemStack[] in;
-    // 输出的物品
+    // Output items
     private ItemStack[] out;
 
     public CommonRecipe(ItemStack[] in, ItemStack[] out) {
@@ -42,45 +42,51 @@ public class CommonRecipe {
     }
 
     /**
-     * @return id
+     * @return The id
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @param id 要设置的 id
+     * @param id The id to be set
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * @return in
+     * @return The input items
      */
     public ItemStack[] getIn() {
         return in;
     }
 
     /**
-     * @param in 要设置的 in
+     * @param in The input items to be set
      */
     public void setIn(ItemStack[] in) {
         this.in = in;
     }
 
     /**
-     * @return out
+     * @return The output items
      */
     public ItemStack[] getOut() {
         return out;
     }
 
     /**
-     * @param out 要设置的 out
+     * @param out The output items to be set
      */
     public void setOut(ItemStack[] out) {
         this.out = out;
     }
-    
+
+    /**
+     * @return The Handler of this recipe
+     */
+    public Class<? extends CommonRecipeHandler> getHandler() {
+        return CommonRecipeHandler.class;
+    }
 }
