@@ -2,13 +2,13 @@
 {
   "modid": "singularity",
   "name": "Singularity",
-  "description": "Singularity Mod for Minecraft.",
+  "description": "Singularity mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Lasm_Gratel","DarkHighness","Bleantan"],
-  "credits": "The Infinity Studio Singularity Team.",
+  "authorList": ["ustc_zzzz"],
+  "credits": "The contributors of Singularity",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

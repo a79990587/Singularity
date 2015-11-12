@@ -21,15 +21,25 @@ buildscript {
 
 apply plugin: 'forge'
 
-def buildnumber = System.getenv("BUILD_NUMBER") == null ? ".1" : "."+System.getenv("BUILD_NUMBER")
+def buildnumber = System.getenv("BUILD_NUMBER") == null ? "0" : System.getenv("BUILD_NUMBER")
 
-version = "1.0"+buildnumber
-group= "org.infinity-studio.singularity" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Singularity"
+version = minecraft_version + "-" +  mod_version + "." + buildnumber
+group = mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = mod_id
 
 minecraft {
-    version = "1.7.10-10.13.4.1492-1.7.10"
+    version = minecraft_version + "-" + forge_version
+
+    replace "@VERSION@", mod_version
+
     runDir = "eclipse"
+    
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not allways work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings = "snapshot_20141130"
 }
 
 dependencies {
