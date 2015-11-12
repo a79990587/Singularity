@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ustc_zzzz"],
-  "credits": "The contributors of Singularity",
+  "authorList": ["Lasm_Gratel","DarkHighness","Blealtan","ustc_zzzz"],
+  "credits": "The Infinity Studio Singularity Team.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
