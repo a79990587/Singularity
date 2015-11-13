@@ -31,19 +31,32 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author ustc_zzzz
  */
 public class ClientProxy extends CommonProxy {
-
-    @Override
-    public void postInit(FMLPostInitializationEvent event) {
-        super.postInit(event);
-    }
-
-    @Override
-    public void init(FMLInitializationEvent event) {
-        super.init(event);
-    }
-
+    
+    /**
+     * FML Pre Initialization Event Handler.
+     * @param event FMLPreInitializationEvent
+     */
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
     }
+
+    /**
+     * FML Initialization Event Handler.
+     * @param event FMLInitializationEvent
+     */
+    @Override
+    public void init(FMLInitializationEvent event) {
+        super.init(event);
+    }
+    
+    /**
+     * FML Post Initialization Event Handler.
+     * @param event FMLPostInitializationEvent
+     */
+    @Override
+    public void postInit(FMLPostInitializationEvent event) {
+        super.postInit(event);
+    }
 }
+

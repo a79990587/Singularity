@@ -28,6 +28,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Singularity Mod Main.
@@ -47,9 +48,12 @@ public class Singularity {
 
     @SidedProxy(clientSide = GROUP + ".client.ClientProxy", serverSide = GROUP + ".common.CommonProxy")
     public static CommonProxy proxy;
+    
+    public static Logger LOGGER;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        LOGGER = event.getModLog();
         proxy.preInit(event);
     }
 

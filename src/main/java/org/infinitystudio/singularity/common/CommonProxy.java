@@ -25,20 +25,31 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * Common proxy on server side.
- *
  * @author ustc_zzzz
  */
 public class CommonProxy {
-
-    public void postInit(FMLPostInitializationEvent event) {
-        // NOTHING^_^
-    }
-
-    public void init(FMLInitializationEvent event) {
-        // NOTHING^_^
-    }
-
+    
+    /**
+     * FML Pre Initialization Event Handler.
+     * @param event FMLPreInitializationEvent
+     */
     public void preInit(FMLPreInitializationEvent event) {
-        // NOTHING^_^
+        //TODO Pre Init Event.
+    }
+
+    /**
+     * FML Initialization Event Handler.
+     * @param event FMLInitializationEvent
+     */
+    public void init(FMLInitializationEvent event) {
+        //TODO Init Event.
+    }
+    
+    /**
+     * FML Post Initialization Event Handler.
+     * @param event FMLPostInitializationEvent
+     */
+    public void postInit(FMLPostInitializationEvent event) {
+        //TODO PostInit Event.
     }
 }
