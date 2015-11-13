@@ -14,31 +14,5 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.common;
-
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-/**
- * Common proxy on server side.
- *
- * @author ustc_zzzz
- */
-public class CommonProxy {
-
-    public void postInit(FMLPostInitializationEvent event) {
-        // NOTHING^_^
-    }
-
-    public void init(FMLInitializationEvent event) {
-        // NOTHING^_^
-    }
-
-    public void preInit(FMLPreInitializationEvent event) {
-        // NOTHING^_^
-    }
-}
