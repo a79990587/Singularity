@@ -44,7 +44,7 @@ public class Singularity {
     public static final String VERSION = "@version@";
 
     @Instance(MODID)
-    public Singularity instance;
+    public static Singularity instance;
 
     @SidedProxy(clientSide = GROUP + ".client.ClientProxy", serverSide = GROUP + ".common.CommonProxy")
     public static CommonProxy proxy;
