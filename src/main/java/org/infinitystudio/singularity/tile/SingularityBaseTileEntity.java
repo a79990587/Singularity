@@ -19,15 +19,12 @@
  */
 package org.infinitystudio.singularity.tile;
 
-import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
 
 /**
  *
  * @author Lasm_Gratel
  */
 public class SingularityBaseTileEntity extends TileEntity {
-    
+
 }
