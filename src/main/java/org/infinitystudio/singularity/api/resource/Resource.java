@@ -77,6 +77,8 @@ public class Resource {
         return this;
     }
 
+    public enum ResourceType {
+        source,abyss
+    }
+
 }
-source,abyss
-        }
