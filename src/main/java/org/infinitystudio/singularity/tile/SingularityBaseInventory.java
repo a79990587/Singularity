@@ -19,12 +19,12 @@
  */
 package org.infinitystudio.singularity.tile;
 
+import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- *
  * @author 陈濯
  */
-public class SingularityBaseInventory extends TileEntity /*implements IInventory*/ {
+public abstract class SingularityBaseInventory extends TileEntity implements IInventory {
 
 }

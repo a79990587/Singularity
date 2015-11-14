@@ -23,7 +23,6 @@ import net.minecraft.block.material.Material;
 import org.infinitystudio.singularity.block.SingularityBaseBlock;
 
 /**
- *
  * @author Lasm_Gratel
  */
 public class ResourceSupplyPipe extends SingularityBaseBlock {

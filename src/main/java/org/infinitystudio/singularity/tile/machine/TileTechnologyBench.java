@@ -19,17 +19,16 @@
  */
 package org.infinitystudio.singularity.tile.machine;
 
+
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IChatComponent;
+import org.infinitystudio.singularity.tile.SingularityBaseInventory;
 
 /**
- *
  * @author Lasm_Gratel
  */
-public class TileTechnologyBench extends TileEntity implements IInventory {
+public class TileTechnologyBench extends SingularityBaseInventory {
 
     private final byte LIMIT = 1;
     private final String NAME = "tileTechnologyBench";

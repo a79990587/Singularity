@@ -1,18 +1,15 @@
 package org.infinitystudio.singularity.tile.machine;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
-import org.infinitystudio.singularity.tile.SingularityBaseTileEntity;
+import org.infinitystudio.singularity.tile.SingularityBaseInventory;
 
 /**
  * @author Blealtan
  */
-public class TileComputer extends SingularityBaseTileEntity implements IInventory {
-
+public class TileComputer  extends SingularityBaseTileEntity implements IInventory {
     private final byte LIMIT = 16;
     private final String NAME = "tileComputer";
     private ItemStack inventory;
@@ -50,7 +47,7 @@ public class TileComputer extends SingularityBaseTileEntity implements IInventor
 
     @Override
     public int getInventoryStackLimit() {
-        return 16;
+        return LIMIT;
     }
 
     @Override

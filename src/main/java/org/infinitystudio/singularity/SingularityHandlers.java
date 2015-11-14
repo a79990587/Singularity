@@ -14,6 +14,7 @@ public class SingularityHandlers {
 
     public static BlockComputer blockComputer = new BlockComputer();
     public static BlockTechnologyBench blockTechnologyBench = new BlockTechnologyBench();
+    public static ItemComputerCoprocessor itemComputerCoprocessor = new ItemComputerCoprocessor();
 
     protected static void registerBlock(SingularityBaseBlock block) {
         GameRegistry.registerBlock(block, block.getUnlocalizedName().substring(5));
@@ -23,8 +24,6 @@ public class SingularityHandlers {
         registerBlock(blockComputer);
         registerBlock(blockTechnologyBench);
     }
-
-    public static ItemComputerCoprocessor itemComputerCoprocessor = new ItemComputerCoprocessor();
 
     protected static void registerItem(SingularityBaseItem item) {
         GameRegistry.registerItem(item, item.getUnlocalizedName().substring(5));

@@ -23,7 +23,6 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 
 /**
- *
  * @author Lasm_Gratel
  */
 public class SingularityMaterial extends Material {
