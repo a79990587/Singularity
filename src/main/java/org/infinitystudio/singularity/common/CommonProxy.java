@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.infinitystudio.singularity.Singularity;
-import org.infinitystudio.singularity.api.SingularityHandlers;
+import org.infinitystudio.singularity.SingularityHandlers;
 
 /**
  * Common proxy on server side.

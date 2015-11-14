@@ -33,7 +33,6 @@ public class BlockComputer extends SingularityBaseMachine {
      */
     public BlockComputer() {
         super(SingularityMaterial.machine);
-        this.setUnlocalizedName("computer");
     }
 
 }

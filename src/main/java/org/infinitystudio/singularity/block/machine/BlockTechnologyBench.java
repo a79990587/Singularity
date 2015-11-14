@@ -35,7 +35,6 @@ public class BlockTechnologyBench extends SingularityBaseMachine {
      */
     public BlockTechnologyBench() {
         super(SingularityMaterial.machine);
-        this.setUnlocalizedName("techbench");
     }
 
 }
