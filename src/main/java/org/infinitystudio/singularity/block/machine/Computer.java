@@ -21,18 +21,20 @@ package org.infinitystudio.singularity.block.machine;
 
 import net.minecraft.block.material.Material;
 import org.infinitystudio.singularity.block.SingularityBaseMachine;
+import org.infinitystudio.singularity.block.SingularityMaterial;
+
 
 /**
  *
  * @author Lasm_Gratel
  */
 public class Computer extends SingularityBaseMachine {
-    
-    /**
-     * @param material 
-     */
-    public Computer(Material material) {
-        super(material);
-    }
-    
+
+	/**
+	 * @param material
+	 */
+	public Computer(Material material) {
+		super(SingularityMaterial.machine);
+	}
+
 }

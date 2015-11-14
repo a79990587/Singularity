@@ -21,18 +21,22 @@ package org.infinitystudio.singularity.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import org.infinitystudio.singularity.SingularityCreativeTabs;
 
 /**
  * Singularity Base Block.
+ *
  * @author Lasm_Gratel
  */
 public class SingularityBaseBlock extends Block {
-    
-    /**
-     * 
-     * @param material Material of this block
-     */
-    public SingularityBaseBlock(Material material) {
-        super(material);
-    }
+
+	/**
+	 *
+	 * @param material Material of this block
+	 */
+	public SingularityBaseBlock(Material material) {
+		super(material);
+		setUnlocalizedName("block" + getClass().getName());
+		setCreativeTab(SingularityCreativeTabs.tabSingularity);
+	}
 }

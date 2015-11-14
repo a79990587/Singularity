@@ -21,8 +21,9 @@ package org.infinitystudio.singularity.worldgen;
 
 /**
  * Place Relic in the world.
+ *
  * @author Lasm_Gratel
  */
 public class RelicPlacer {
-    
+
 }

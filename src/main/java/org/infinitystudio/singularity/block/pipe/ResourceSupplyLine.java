@@ -27,12 +27,12 @@ import org.infinitystudio.singularity.block.SingularityBaseBlock;
  * @author Lasm_Gratel
  */
 public class ResourceSupplyLine extends SingularityBaseBlock {
-    
-    /**
-     * @param material 
-     */
-    public ResourceSupplyLine(Material material) {
-        super(material);
-    }
-    
+
+	/**
+	 * @param material
+	 */
+	public ResourceSupplyLine(Material material) {
+		super(material);
+	}
+
 }

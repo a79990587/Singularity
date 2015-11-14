@@ -27,60 +27,60 @@ package org.infinitystudio.singularity.api.resource;
  */
 public class Resource {
 
-    private int quantity;
-    private ResourceType type;
+	private int quantity;
+	private ResourceType type;
 
-    /**
-     * @param type Type of the quantity
-     * @param quantity Resource quantity, must be positive
-     */
-    public Resource(ResourceType type, int quantity) {
-        this.type = type;
-        if (quantity < 0) {
-            quantity = 0;
-        }
-        this.quantity = quantity;
-    }
+	/**
+	 * @param type Type of the quantity
+	 * @param quantity Resource quantity, must be positive
+	 */
+	public Resource(ResourceType type, int quantity) {
+		this.type = type;
+		if (quantity < 0) {
+			quantity = 0;
+		}
+		this.quantity = quantity;
+	}
 
-    /**
-     * @return quantity, positive
-     */
-    public int getQuantity() {
-        return quantity;
-    }
+	/**
+	 * @return quantity, positive
+	 */
+	public int getQuantity() {
+		return quantity;
+	}
 
-    /**
-     * @param quantity The quantity to be set, must be positive
-     * @return The resource object itself
-     */
-    public Resource setQuantity(int quantity) {
-        if (quantity < 0) {
-            quantity = 0;
-        }
-        this.quantity = quantity;
-        return this;
-    }
+	/**
+	 * @param quantity The quantity to be set, must be positive
+	 * @return The resource object itself
+	 */
+	public Resource setQuantity(int quantity) {
+		if (quantity < 0) {
+			quantity = 0;
+		}
+		this.quantity = quantity;
+		return this;
+	}
 
-    /**
-     * @return type
-     */
-    public ResourceType getType() {
-        return type;
-    }
+	/**
+	 * @return type
+	 */
+	public ResourceType getType() {
+		return type;
+	}
 
-    /**
-     * @param type The type to be set
-     * @return The resource object itself
-     */
-    public Resource setType(ResourceType type) {
-        this.type = type;
-        return this;
-    }
+	/**
+	 * @param type The type to be set
+	 * @return The resource object itself
+	 */
+	public Resource setType(ResourceType type) {
+		this.type = type;
+		return this;
+	}
 
-    /**
-     * Type of the resource.
-     */
-    public enum ResourceType {
-        test1, test2, test3, test4, test5, test6
-    }
+	/**
+	 * Type of the resource.
+	 */
+	public enum ResourceType {
+		test1, test2, test3, test4, test5, test6
+	}
 }

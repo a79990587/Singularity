@@ -31,102 +31,102 @@ import net.minecraft.util.IChatComponent;
  */
 public class TileTechnologyBench extends TileEntity implements IInventory {
 
-    private ItemStack[] inventory = new ItemStack[6];
-    private final byte LIMIT = 1;
-    private boolean isWorking = false;
-    private final String NAME = "tileTechnologyBench";
+	private ItemStack[] inventory = new ItemStack[6];
+	private final byte LIMIT = 1;
+	private boolean isWorking = false;
+	private final String NAME = "tileTechnologyBench";
 
-    /**
-     * Returns the number of slots in the inventory.
-     *
-     * @return the number of slots in the inventory
-     */
-    @Override
-    public int getSizeInventory() {
-        return inventory.length;
-    }
+	/**
+	 * Returns the number of slots in the inventory.
+	 *
+	 * @return the number of slots in the inventory
+	 */
+	@Override
+	public int getSizeInventory() {
+		return inventory.length;
+	}
 
-    @Override
-    public ItemStack getStackInSlot(int index) {
-        return inventory[index];
-    }
+	@Override
+	public ItemStack getStackInSlot(int index) {
+		return inventory[index];
+	}
 
-    @Override
-    public ItemStack decrStackSize(int index, int count) {
-        return inventory[index].splitStack(count);
-    }
+	@Override
+	public ItemStack decrStackSize(int index, int count) {
+		return inventory[index].splitStack(count);
+	}
 
-    @Override
-    public ItemStack getStackInSlotOnClosing(int index) {
-        return null;
-    }
+	@Override
+	public ItemStack getStackInSlotOnClosing(int index) {
+		return null;
+	}
 
-    @Override
-    public void setInventorySlotContents(int index, ItemStack stack) {
-        inventory[index] = stack;
-    }
+	@Override
+	public void setInventorySlotContents(int index, ItemStack stack) {
+		inventory[index] = stack;
+	}
 
-    @Override
-    public int getInventoryStackLimit() {
-        return LIMIT;
-    }
+	@Override
+	public int getInventoryStackLimit() {
+		return LIMIT;
+	}
 
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer player) {
-        return true;
-    }
+	@Override
+	public boolean isUseableByPlayer(EntityPlayer player) {
+		return true;
+	}
 
-    @Override
-    public void openInventory(EntityPlayer player) {
+	@Override
+	public void openInventory(EntityPlayer player) {
 
-    }
+	}
 
-    @Override
-    public void closeInventory(EntityPlayer player) {
+	@Override
+	public void closeInventory(EntityPlayer player) {
 
-    }
+	}
 
-    @Override
-    public boolean isItemValidForSlot(int index, ItemStack stack) {
-        if (index != inventory.length + 1) {
-            return isWorking;
-        } else {
-            return false;
-        }
-    }
+	@Override
+	public boolean isItemValidForSlot(int index, ItemStack stack) {
+		if (index != inventory.length + 1) {
+			return isWorking;
+		} else {
+			return false;
+		}
+	}
 
-    @Override
-    public int getField(int id) {
-        return 0;
-    }
+	@Override
+	public int getField(int id) {
+		return 0;
+	}
 
-    @Override
-    public void setField(int id, int value) {
+	@Override
+	public void setField(int id, int value) {
 
-    }
+	}
 
-    @Override
-    public int getFieldCount() {
-        return 0;
-    }
+	@Override
+	public int getFieldCount() {
+		return 0;
+	}
 
-    @Override
-    public void clear() {
+	@Override
+	public void clear() {
 
-    }
+	}
 
-    @Override
-    public String getName() {
-        return NAME;
-    }
+	@Override
+	public String getName() {
+		return NAME;
+	}
 
-    @Override
-    public boolean hasCustomName() {
-        return false;
-    }
+	@Override
+	public boolean hasCustomName() {
+		return false;
+	}
 
-    @Override
-    public IChatComponent getDisplayName() {
-        return null;
-    }
+	@Override
+	public IChatComponent getDisplayName() {
+		return null;
+	}
 }

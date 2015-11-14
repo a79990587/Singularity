@@ -19,20 +19,21 @@
  */
 package org.infinitystudio.singularity.block;
 
-import net.minecraft.item.ItemBlock;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 
 /**
- * Singularity Base ItemBlock.
  *
  * @author Lasm_Gratel
  */
-public class SingularityBaseItemBlock extends ItemBlock {
-
-	/**
-	 * @param block
-	 */
-	public SingularityBaseItemBlock(SingularityBaseBlock block) {
-		super(block);
+public class SingularityMaterial extends Material {
+	
+	public static final Material elder = new Material(MapColor.obsidianColor);
+	public static final Material construct = new Material(MapColor.goldColor);
+	public static final Material machine = new Material(MapColor.blueColor);
+	
+	public SingularityMaterial(MapColor color) {
+		super(color);
 	}
-
+	
 }

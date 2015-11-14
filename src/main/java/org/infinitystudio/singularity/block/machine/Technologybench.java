@@ -23,17 +23,18 @@ import net.minecraft.block.material.Material;
 import org.infinitystudio.singularity.block.SingularityBaseMachine;
 
 /**
- * Technology Workbrench.
- * (Source of all thing) <- 233
- * @author Lasm_Gratel
+ * Technology Workbrench. (Source of all thing) <- 233 @a
+ *
+ *
+ * uthor Lasm_Gratel
  */
 public class Technologybench extends SingularityBaseMachine {
-    
-    /**
-     * @param material
-     */
-    public Technologybench(Material material) {
-        super(material);
-    }
-    
+
+	/**
+	 *
+	 */
+	public Technologybench() {
+		super(Material.glass);
+	}
+
 }
