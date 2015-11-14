@@ -17,27 +17,23 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.worldgen;
+package org.infinitystudio.singularity.container.machine;
 
-import java.util.Random;
+import org.infinitystudio.singularity.container.SingularityBaseContainer;
 
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.entity.player.EntityPlayer;
 
 /**
- * Place Relic in the world.
- *
+ * The Container of TechnologyBench.
+ * 
  * @author Lasm_Gratel
+ * @see org.infinitystudio.singularity.tile.machine.TileTechnologyBench
  */
-public class RelicWorldGen extends WorldGenerator {
+public class ContainerTechnologyBench extends SingularityBaseContainer {
 
-    /**
-     * @see net.minecraft.world.gen.feature.WorldGenerator#generate(net.minecraft.world.World, java.util.Random, net.minecraft.util.BlockPos)
-     */
     @Override
-    public boolean generate(World worldIn, Random p_180709_2_, BlockPos p_180709_3_) {
-	return false;
+    public boolean canInteractWith(EntityPlayer playerIn) {
+	return true;
     }
 
 }

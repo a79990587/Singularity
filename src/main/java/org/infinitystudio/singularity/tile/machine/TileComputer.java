@@ -11,7 +11,7 @@ import org.infinitystudio.singularity.tile.SingularityBaseTileEntity;
 /**
  * @author Blealtan
  */
-public class TileComputer  extends SingularityBaseTileEntity implements IInventory {
+public class TileComputer extends SingularityBaseTileEntity implements IInventory {
 
     private final byte LIMIT = 16;
     private final String NAME = "tileComputer";
