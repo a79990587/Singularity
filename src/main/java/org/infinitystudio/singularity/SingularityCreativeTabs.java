@@ -19,11 +19,13 @@
  */
 package org.infinitystudio.singularity;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.infinitystudio.singularity.block.machine.Technologybench;
+import org.infinitystudio.singularity.api.SingularityHandlers;
+import org.infinitystudio.singularity.block.machine.BlockTechnologyBench;
 
 /**
  * Singularity Creative Tab.
@@ -44,7 +46,7 @@ public abstract class SingularityCreativeTabs extends CreativeTabs {
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem() {
-            return Item.getItemFromBlock(new Technologybench());
+            return Item.getItemFromBlock(SingularityHandlers.blockComputer);
         }
 
         /**

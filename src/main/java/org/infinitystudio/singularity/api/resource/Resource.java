@@ -80,5 +80,4 @@ public class Resource {
     public enum ResourceType {
         source,abyss
     }
-
 }
