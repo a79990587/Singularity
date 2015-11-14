@@ -22,7 +22,6 @@ package org.infinitystudio.singularity.tile;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- *
  * @author Lasm_Gratel
  */
 public class SingularityBaseTileEntity extends TileEntity {

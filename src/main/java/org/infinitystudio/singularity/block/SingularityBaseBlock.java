@@ -31,7 +31,6 @@ import org.infinitystudio.singularity.SingularityCreativeTabs;
 public class SingularityBaseBlock extends Block {
 
     /**
-     *
      * @param material Material of this block
      */
     public SingularityBaseBlock(Material material) {

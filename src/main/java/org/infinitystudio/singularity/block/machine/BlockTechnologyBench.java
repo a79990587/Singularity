@@ -24,8 +24,8 @@ import org.infinitystudio.singularity.block.SingularityMaterial;
 
 /**
  * Technology Workbrench. (Source of all thing) <- 233 @a
- *
- *
+ * <p/>
+ * <p/>
  * uthor Lasm_Gratel
  */
 public class BlockTechnologyBench extends SingularityBaseMachine {

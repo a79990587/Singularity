@@ -31,7 +31,7 @@ public class Resource {
     private ResourceType type;
 
     /**
-     * @param type Type of the quantity
+     * @param type     Type of the quantity
      * @param quantity Resource quantity, must be positive
      */
     public Resource(ResourceType type, int quantity) {
@@ -78,6 +78,6 @@ public class Resource {
     }
 
     public enum ResourceType {
-        source,abyss
+        source, abyss
     }
 }

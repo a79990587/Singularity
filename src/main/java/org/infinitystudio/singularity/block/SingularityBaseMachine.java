@@ -29,7 +29,6 @@ import net.minecraft.block.material.Material;
 public class SingularityBaseMachine extends SingularityBaseBlock {
 
     /**
-     *
      * @param material
      */
     public SingularityBaseMachine(Material material) {
