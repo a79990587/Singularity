@@ -54,16 +54,16 @@ public class Singularity {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-	proxy.preInit(event);
+        proxy.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-	proxy.init(event);
+        proxy.init(event);
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-	proxy.postInit(event);
+        proxy.postInit(event);
     }
 }
