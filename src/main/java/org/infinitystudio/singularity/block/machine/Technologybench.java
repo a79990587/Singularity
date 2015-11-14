@@ -27,12 +27,12 @@ import org.infinitystudio.singularity.block.SingularityBaseMachine;
  * (Source of all thing) <- 233
  * @author Lasm_Gratel
  */
-public class Technologybench extends SingularityBaseMachine {
+public class TechnologyBench extends SingularityBaseMachine {
     
     /**
      * @param material
      */
-    public Technologybench(Material material) {
+    public TechnologyBench(Material material) {
         super(material);
     }
     

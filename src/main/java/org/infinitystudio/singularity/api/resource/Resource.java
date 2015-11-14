@@ -22,8 +22,7 @@ package org.infinitystudio.singularity.api.resource;
 /**
  * The representation of a packet of resource.
  *
- * @author Lasm_Gratel
- * @author Blealtan
+ * @author Lasm_Gratel Blealtan
  */
 public class Resource {
 
@@ -81,6 +80,6 @@ public class Resource {
      * Type of the resource.
      */
     public enum ResourceType {
-        test1, test2, test3, test4, test5, test6
+        source, abyss
     }
 }
