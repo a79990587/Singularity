@@ -28,7 +28,7 @@ import org.infinitystudio.singularity.block.SingularityBaseMachine;
  *
  * uthor Lasm_Gratel
  */
-public class Technologybench extends SingularityBaseMachine {
+public class TechnologyBench extends SingularityBaseMachine {
 
 	/**
 	 *
