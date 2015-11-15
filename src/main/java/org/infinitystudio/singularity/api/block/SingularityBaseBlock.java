@@ -17,14 +17,27 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.tile;
+package org.infinitystudio.singularity.api.block;
 
-import net.minecraft.inventory.IInventory;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import org.infinitystudio.singularity.SingularityCreativeTabs;
 
 /**
+ * Singularity Base Block.
+ *
  * @author Lasm_Gratel
  */
-public abstract class SingularityBaseInventory extends SingularityBaseTileEntity implements IInventory {
+public class SingularityBaseBlock extends Block {
 
+    /**
+     * @param material Material of this block
+     */
+    public SingularityBaseBlock(Material material) {
+        super(material);
+        char[] name = getClass().getName().toCharArray();
+        name[0] = 'b';
+        setUnlocalizedName(String.valueOf(name));
+        setCreativeTab(SingularityCreativeTabs.tabSingularity);
+    }
 }

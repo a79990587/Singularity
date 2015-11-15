@@ -24,11 +24,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 import org.infinitystudio.singularity.api.resource.Resource;
+import org.infinitystudio.singularity.api.tile.SingularityBaseMachineTile;
 
 /**
  * @author Lasm_Gratel
  */
-public class TileTechnologyBench extends TileBaseMachine {
+public class TileTechnologyBench extends SingularityBaseMachineTile {
 
     private final byte LIMIT = 1;
     private final String NAME = "tileTechnologyBench";

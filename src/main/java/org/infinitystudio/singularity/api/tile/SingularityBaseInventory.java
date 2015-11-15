@@ -17,22 +17,13 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.api.tile;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
+import net.minecraft.inventory.IInventory;
 
 /**
  * @author Lasm_Gratel
  */
-public class SingularityMaterial extends Material {
-
-    public static final Material elder = new Material(MapColor.obsidianColor);
-    public static final Material construct = new Material(MapColor.goldColor);
-    public static final Material machine = new Material(MapColor.blueColor);
-
-    public SingularityMaterial(MapColor color) {
-        super(color);
-    }
+public abstract class SingularityBaseInventory extends SingularityBaseTileEntity implements IInventory {
 
 }

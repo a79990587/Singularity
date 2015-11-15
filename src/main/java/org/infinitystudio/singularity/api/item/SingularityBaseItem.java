@@ -1,4 +1,4 @@
-package org.infinitystudio.singularity.item;
+package org.infinitystudio.singularity.api.item;
 
 import net.minecraft.item.Item;
 import org.infinitystudio.singularity.SingularityCreativeTabs;

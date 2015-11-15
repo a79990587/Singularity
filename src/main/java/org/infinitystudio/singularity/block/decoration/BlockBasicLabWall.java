@@ -1,7 +1,7 @@
 package org.infinitystudio.singularity.block.decoration;
 
-import org.infinitystudio.singularity.block.SingularityBaseBlock;
-import org.infinitystudio.singularity.block.SingularityMaterial;
+import org.infinitystudio.singularity.api.block.SingularityBaseBlock;
+import org.infinitystudio.singularity.api.SingularityMaterial;
 
 /**
  * @author Blealtan

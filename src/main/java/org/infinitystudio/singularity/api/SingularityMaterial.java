@@ -17,22 +17,22 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.api;
 
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 
 /**
- * Singularity Base Machine.
- *
  * @author Lasm_Gratel
  */
-public abstract class SingularityBaseMachine extends SingularityBaseBlock {
+public class SingularityMaterial extends Material {
 
-    /**
-     * @param material The material.
-     */
-    public SingularityBaseMachine(Material material) {
-        super(material);
+    public static final Material elder = new Material(MapColor.obsidianColor);
+    public static final Material construct = new Material(MapColor.goldColor);
+    public static final Material machine = new Material(MapColor.blueColor);
+
+    public SingularityMaterial(MapColor color) {
+        super(color);
     }
 
 }

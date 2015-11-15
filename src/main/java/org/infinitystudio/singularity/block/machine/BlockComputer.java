@@ -19,8 +19,8 @@
  */
 package org.infinitystudio.singularity.block.machine;
 
-import org.infinitystudio.singularity.block.SingularityBaseMachine;
-import org.infinitystudio.singularity.block.SingularityMaterial;
+import org.infinitystudio.singularity.api.block.SingularityBaseMachine;
+import org.infinitystudio.singularity.api.SingularityMaterial;
 
 
 /**

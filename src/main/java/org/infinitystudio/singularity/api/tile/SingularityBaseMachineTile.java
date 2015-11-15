@@ -1,17 +1,16 @@
-package org.infinitystudio.singularity.tile.machine;
+package org.infinitystudio.singularity.api.tile;
 
 import org.infinitystudio.singularity.api.resource.Resource;
-import org.infinitystudio.singularity.tile.SingularityBaseInventory;
 
 /**
  * @author Blealtan
  */
-public abstract class TileBaseMachine extends SingularityBaseInventory {
+public abstract class SingularityBaseMachineTile extends SingularityBaseInventory {
 
     private boolean runningState;
-    private TileBaseMachine centralBlock;
+    private SingularityBaseMachineTile centralBlock;
 
-    public TileBaseMachine() {
+    public SingularityBaseMachineTile() {
         super();
         runningState = false;
         centralBlock = null;
@@ -23,7 +22,7 @@ public abstract class TileBaseMachine extends SingularityBaseInventory {
      * @param refresh Whether to find the central block. Should only be called when block placement has changed.
      * @return The central block controlling this machine.
      */
-    public TileBaseMachine getCentralBlock(boolean refresh) {
+    public SingularityBaseMachineTile getCentralBlock(boolean refresh) {
         if (refresh) {
             /* TODO: Check for central blocks around and ask them
                TODO: to refresh their dispatching list (if refresh == true).

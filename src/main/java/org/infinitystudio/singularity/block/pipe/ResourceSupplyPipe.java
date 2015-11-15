@@ -20,7 +20,7 @@
 package org.infinitystudio.singularity.block.pipe;
 
 import net.minecraft.block.material.Material;
-import org.infinitystudio.singularity.block.SingularityBaseBlock;
+import org.infinitystudio.singularity.api.block.SingularityBaseBlock;
 
 /**
  * @author Lasm_Gratel

@@ -4,12 +4,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 import org.infinitystudio.singularity.api.resource.Resource;
+import org.infinitystudio.singularity.api.tile.SingularityBaseMachineTile;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
 
 /**
  * @author Blealtan
  */
-public class TileComputer extends TileBaseMachine {
+public class TileComputer extends SingularityBaseMachineTile {
     private final byte LIMIT = 16;
     private final String NAME = "tileComputer";
     private ItemStack inventory;

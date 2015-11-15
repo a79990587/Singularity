@@ -17,22 +17,13 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.api.tile;
 
-import net.minecraft.item.ItemBlock;
+import net.minecraft.tileentity.TileEntity;
 
 /**
- * Singularity Base ItemBlock.
- *
  * @author Lasm_Gratel
  */
-public class SingularityBaseItemBlock extends ItemBlock {
-
-    /**
-     * @param block
-     */
-    public SingularityBaseItemBlock(SingularityBaseBlock block) {
-        super(block);
-    }
+public class SingularityBaseTileEntity extends TileEntity {
 
 }

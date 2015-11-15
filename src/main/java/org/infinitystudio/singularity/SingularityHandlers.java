@@ -1,12 +1,12 @@
 package org.infinitystudio.singularity;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import org.infinitystudio.singularity.block.SingularityBaseBlock;
+import org.infinitystudio.singularity.api.item.SingularityBaseItem;
+import org.infinitystudio.singularity.api.block.SingularityBaseBlock;
 import org.infinitystudio.singularity.block.decoration.BlockBasicLabWall;
 import org.infinitystudio.singularity.block.machine.BlockComputer;
 import org.infinitystudio.singularity.block.machine.BlockTechnologyBench;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
-import org.infinitystudio.singularity.item.SingularityBaseItem;
 
 /**
  * @author Blealtan
