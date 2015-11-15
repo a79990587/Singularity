@@ -17,24 +17,24 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.block.fluid;
 
-import net.minecraft.block.material.MapColor;
+import org.infinitystudio.singularity.SingularityHandlers;
+import org.infinitystudio.singularity.block.SingularityBaseBlockFluid;
+import org.infinitystudio.singularity.block.SingularityMaterial;
+
 import net.minecraft.block.material.Material;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 
 /**
  * @author Lasm_Gratel
+ *
  */
-public class SingularityMaterial extends Material {
+public class BlockFluidAbyss extends SingularityBaseBlockFluid {
 
-    public static final Material elder = new Material(MapColor.obsidianColor);
-    public static final Material construct = new Material(MapColor.goldColor);
-    public static final Material machine = new Material(MapColor.blueColor);
-    public static final Material abyss = new Material(MapColor.blackColor);
-    public static final Material source = new Material(MapColor.iceColor);
-    
-    public SingularityMaterial(MapColor color) {
-        super(color);
+    public BlockFluidAbyss() {
+	super(SingularityHandlers.fluidAbyss, SingularityMaterial.abyss);
     }
 
 }

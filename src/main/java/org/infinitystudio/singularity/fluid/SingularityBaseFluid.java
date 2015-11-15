@@ -17,24 +17,27 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.fluid;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 
 /**
  * @author Lasm_Gratel
+ *
  */
-public class SingularityMaterial extends Material {
+public class SingularityBaseFluid extends Fluid {
 
-    public static final Material elder = new Material(MapColor.obsidianColor);
-    public static final Material construct = new Material(MapColor.goldColor);
-    public static final Material machine = new Material(MapColor.blueColor);
-    public static final Material abyss = new Material(MapColor.blackColor);
-    public static final Material source = new Material(MapColor.iceColor);
-    
-    public SingularityMaterial(MapColor color) {
-        super(color);
+    /**
+     * @param fluidName the name of the fluid
+     * @param still still texture of the fluid
+     * @param flowing flowing texture of the fluid
+     */
+    public SingularityBaseFluid(String fluidName, ResourceLocation still, ResourceLocation flowing) {
+	super(fluidName, still, flowing);
+        char[] name = getClass().getName().toCharArray();
+        name[0] = 'b';
+        this.setUnlocalizedName(fluidName);
     }
 
 }

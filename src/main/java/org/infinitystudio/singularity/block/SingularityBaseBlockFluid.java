@@ -19,22 +19,29 @@
  */
 package org.infinitystudio.singularity.block;
 
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * @author Lasm_Gratel
+ *
  */
-public class SingularityMaterial extends Material {
+public class SingularityBaseBlockFluid extends BlockFluidClassic {
 
-    public static final Material elder = new Material(MapColor.obsidianColor);
-    public static final Material construct = new Material(MapColor.goldColor);
-    public static final Material machine = new Material(MapColor.blueColor);
-    public static final Material abyss = new Material(MapColor.blackColor);
-    public static final Material source = new Material(MapColor.iceColor);
-    
-    public SingularityMaterial(MapColor color) {
-        super(color);
+    @SideOnly(Side.CLIENT)
+    protected TextureAtlasSprite stillIcon;
+    @SideOnly(Side.CLIENT)
+    protected TextureAtlasSprite flowingIcon;
+    /**
+     * @param fluid
+     * @param material
+     */
+    public SingularityBaseBlockFluid(Fluid fluid, Material material) {
+	super(fluid, material);
     }
-
 }

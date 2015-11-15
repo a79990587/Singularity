@@ -17,24 +17,30 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.fluid;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
+import org.infinitystudio.singularity.SingularityHandlers;
+
+import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
 
 /**
+ * Abyss Fluid.
+ * Viscosity is 3000 (use 3000 ticks to flow)
+ * Density is 10000 (
  * @author Lasm_Gratel
  */
-public class SingularityMaterial extends Material {
+public class FluidAbyss extends SingularityBaseFluid {
 
-    public static final Material elder = new Material(MapColor.obsidianColor);
-    public static final Material construct = new Material(MapColor.goldColor);
-    public static final Material machine = new Material(MapColor.blueColor);
-    public static final Material abyss = new Material(MapColor.blackColor);
-    public static final Material source = new Material(MapColor.iceColor);
+    protected static final ResourceLocation still = new ResourceLocation("singularity", "textures/fluid/abyssStill.png");
+    protected static final ResourceLocation flowing = new ResourceLocation("singularity", "textures/fluid/abyssFlowing.png");
+    protected Block block = SingularityHandlers.blockTechnologyBench;
     
-    public SingularityMaterial(MapColor color) {
-        super(color);
+    public FluidAbyss() {
+	super("fluidAbyss", still, flowing);
+	setViscosity(3000);
+	setDensity(10000);
+	setBlock(block);
     }
 
 }

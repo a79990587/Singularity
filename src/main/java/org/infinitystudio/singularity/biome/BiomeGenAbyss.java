@@ -17,24 +17,14 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.biome;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
+import net.minecraft.world.biome.BiomeGenBase;
 
 /**
  * @author Lasm_Gratel
+ *
  */
-public class SingularityMaterial extends Material {
-
-    public static final Material elder = new Material(MapColor.obsidianColor);
-    public static final Material construct = new Material(MapColor.goldColor);
-    public static final Material machine = new Material(MapColor.blueColor);
-    public static final Material abyss = new Material(MapColor.blackColor);
-    public static final Material source = new Material(MapColor.iceColor);
-    
-    public SingularityMaterial(MapColor color) {
-        super(color);
-    }
+public class BiomeGenAbyss extends BiomeGenBase {
 
 }

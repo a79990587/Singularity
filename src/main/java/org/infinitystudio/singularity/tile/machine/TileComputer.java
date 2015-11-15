@@ -1,10 +1,12 @@
 package org.infinitystudio.singularity.tile.machine;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
 import org.infinitystudio.singularity.tile.SingularityBaseInventory;
+import org.infinitystudio.singularity.tile.SingularityBaseTileEntity;
 
 /**
  * @author Blealtan
@@ -17,7 +19,6 @@ public class TileComputer  extends SingularityBaseTileEntity implements IInvento
 
     /**
      * Returns the number of slots in the inventory.
-     *
      * @return the number of slots in the inventory
      */
     @Override
