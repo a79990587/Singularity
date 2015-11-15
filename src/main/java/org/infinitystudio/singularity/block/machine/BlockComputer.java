@@ -27,12 +27,10 @@ import org.infinitystudio.singularity.block.SingularityMaterial;
  * @author Lasm_Gratel
  */
 public class BlockComputer extends SingularityBaseMachine {
-
     /**
      * The constructor of BlockComputer.
      */
     public BlockComputer() {
         super(SingularityMaterial.machine);
     }
-
 }

@@ -23,8 +23,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- * @author 陈濯
+ * @author Lasm_Gratel
  */
-public abstract class SingularityBaseInventory extends TileEntity implements IInventory {
+public abstract class SingularityBaseInventory extends SingularityBaseTileEntity implements IInventory {
 
 }

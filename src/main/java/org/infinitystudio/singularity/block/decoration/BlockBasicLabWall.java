@@ -1,7 +1,13 @@
 package org.infinitystudio.singularity.block.decoration;
 
+import org.infinitystudio.singularity.block.SingularityBaseBlock;
+import org.infinitystudio.singularity.block.SingularityMaterial;
+
 /**
- * Created by bolee on 2015/11/15.
+ * @author Blealtan
  */
-public class BlockBasicLabWall {
+public class BlockBasicLabWall extends SingularityBaseBlock {
+    public BlockBasicLabWall() {
+        super(SingularityMaterial.elder);
+    }
 }

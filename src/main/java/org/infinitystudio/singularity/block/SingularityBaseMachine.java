@@ -26,10 +26,10 @@ import net.minecraft.block.material.Material;
  *
  * @author Lasm_Gratel
  */
-public class SingularityBaseMachine extends SingularityBaseBlock {
+public abstract class SingularityBaseMachine extends SingularityBaseBlock {
 
     /**
-     * @param material
+     * @param material The material.
      */
     public SingularityBaseMachine(Material material) {
         super(material);

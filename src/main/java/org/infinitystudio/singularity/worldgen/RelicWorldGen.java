@@ -19,11 +19,11 @@
  */
 package org.infinitystudio.singularity.worldgen;
 
-import java.util.Random;
-
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 /**
  * Place Relic in the world.
@@ -37,7 +37,7 @@ public class RelicWorldGen extends WorldGenerator {
      */
     @Override
     public boolean generate(World worldIn, Random p_180709_2_, BlockPos p_180709_3_) {
-	return false;
+        return false;
     }
 
 }

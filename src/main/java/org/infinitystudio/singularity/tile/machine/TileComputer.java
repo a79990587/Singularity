@@ -3,17 +3,21 @@ package org.infinitystudio.singularity.tile.machine;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
+import org.infinitystudio.singularity.api.resource.Resource;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
-import org.infinitystudio.singularity.tile.SingularityBaseInventory;
 
 /**
  * @author Blealtan
  */
-public class TileComputer  extends SingularityBaseTileEntity implements IInventory {
+public class TileComputer extends TileBaseMachine {
     private final byte LIMIT = 16;
     private final String NAME = "tileComputer";
     private ItemStack inventory;
-    private boolean isWorking = false;
+    private Resource resourceUsage;
+
+    public TileComputer() {
+        resourceUsage = new Resource(null, null);
+    }
 
     /**
      * Returns the number of slots in the inventory.
@@ -32,6 +36,7 @@ public class TileComputer  extends SingularityBaseTileEntity implements IInvento
 
     @Override
     public ItemStack decrStackSize(int index, int count) {
+        resourceUsage.setQuantity(Resource.ResourceType.source, 10 * (inventory.stackSize + 1));
         return inventory.splitStack(count);
     }
 
@@ -43,6 +48,7 @@ public class TileComputer  extends SingularityBaseTileEntity implements IInvento
     @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
         inventory = stack;
+        resourceUsage.setQuantity(Resource.ResourceType.source, 10 * (inventory.stackSize + 1));
     }
 
     @Override
@@ -105,4 +111,8 @@ public class TileComputer  extends SingularityBaseTileEntity implements IInvento
         return null;
     }
 
+    @Override
+    public Resource getResourceUsage() {
+        return resourceUsage;
+    }
 }

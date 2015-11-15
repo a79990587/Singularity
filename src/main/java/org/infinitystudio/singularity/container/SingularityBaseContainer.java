@@ -23,7 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 
 public abstract class SingularityBaseContainer extends Container {
-	
-	public abstract boolean canInteractWith(EntityPlayer playerIn);
-	
+
+    public abstract boolean canInteractWith(EntityPlayer playerIn);
+
 }
