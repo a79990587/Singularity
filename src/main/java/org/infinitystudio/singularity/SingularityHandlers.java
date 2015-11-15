@@ -2,6 +2,7 @@ package org.infinitystudio.singularity;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.infinitystudio.singularity.block.SingularityBaseBlock;
+import org.infinitystudio.singularity.block.decoration.BlockBasicLabWall;
 import org.infinitystudio.singularity.block.machine.BlockComputer;
 import org.infinitystudio.singularity.block.machine.BlockTechnologyBench;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
@@ -14,6 +15,7 @@ public class SingularityHandlers {
 
     public static BlockComputer blockComputer = new BlockComputer();
     public static BlockTechnologyBench blockTechnologyBench = new BlockTechnologyBench();
+    public static BlockBasicLabWall blockBasicLabWall = new BlockBasicLabWall();
     public static ItemComputerCoprocessor itemComputerCoprocessor = new ItemComputerCoprocessor();
 
     protected static void registerBlock(SingularityBaseBlock block) {
@@ -23,6 +25,7 @@ public class SingularityHandlers {
     public static void registerBlocks() {
         registerBlock(blockComputer);
         registerBlock(blockTechnologyBench);
+        registerBlock(blockBasicLabWall);
     }
 
     protected static void registerItem(SingularityBaseItem item) {
