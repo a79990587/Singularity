@@ -23,10 +23,8 @@ import org.infinitystudio.singularity.api.block.SingularityBaseMachine;
 import org.infinitystudio.singularity.api.SingularityMaterial;
 
 /**
- * Technology Workbrench. (Source of all thing) <- 233 @a
- * <p/>
- * <p/>
- * uthor Lasm_Gratel
+ * Technology Workbench. (Start for all around Science and Technology!)
+ * @author Lasm_Gratel
  */
 public class BlockTechnologyBench extends SingularityBaseMachine {
 
