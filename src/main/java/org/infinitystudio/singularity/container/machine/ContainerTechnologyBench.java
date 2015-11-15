@@ -19,13 +19,12 @@
  */
 package org.infinitystudio.singularity.container.machine;
 
-import org.infinitystudio.singularity.container.SingularityBaseContainer;
-
 import net.minecraft.entity.player.EntityPlayer;
+import org.infinitystudio.singularity.container.SingularityBaseContainer;
 
 /**
  * The Container of TechnologyBench.
- * 
+ *
  * @author Lasm_Gratel
  * @see org.infinitystudio.singularity.tile.machine.TileTechnologyBench
  */
@@ -33,7 +32,7 @@ public class ContainerTechnologyBench extends SingularityBaseContainer {
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
-	return true;
+        return true;
     }
 
 }

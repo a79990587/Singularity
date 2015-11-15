@@ -17,22 +17,13 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.api.tile;
 
-import net.minecraft.block.material.Material;
+import net.minecraft.inventory.IInventory;
 
 /**
- * Singularity Base Machine.
- *
  * @author Lasm_Gratel
  */
-public class SingularityBaseMachine extends SingularityBaseBlock {
-
-    /**
-     * @param material
-     */
-    public SingularityBaseMachine(Material material) {
-        super(material);
-    }
+public abstract class SingularityBaseInventory extends SingularityBaseTileEntity implements IInventory {
 
 }

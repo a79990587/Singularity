@@ -19,6 +19,8 @@
  */
 package org.infinitystudio.singularity.api.resource;
 
+import java.util.EnumMap;
+
 /**
  * The representation of a packet of resource.
  *
@@ -27,53 +29,38 @@ package org.infinitystudio.singularity.api.resource;
  */
 public class Resource {
 
-    private int quantity;
-    private ResourceType type;
+    private EnumMap<ResourceType, Integer> resources;
 
     /**
      * @param type     Type of the quantity
      * @param quantity Resource quantity, must be positive
      */
-    public Resource(ResourceType type, int quantity) {
-        this.type = type;
-        if (quantity < 0) {
-            quantity = 0;
-        }
-        this.quantity = quantity;
+    public Resource(ResourceType[] type, int[] quantity) {
+        resources = new EnumMap<ResourceType, Integer>(ResourceType.class);
+
+        if (type == null || quantity == null)
+            return;
+
+        int length = (type.length > quantity.length) ? quantity.length : type.length;
+        for (int i = 0; i < length; ++i)
+            resources.put(type[i], (quantity[i] < 0) ? 0 : quantity[i]);
     }
 
     /**
      * @return quantity, positive
      */
-    public int getQuantity() {
-        return quantity;
+    public int getQuantity(ResourceType type) {
+        Integer res = resources.get(type);
+        return (res == null) ? 0 : res;
     }
 
     /**
      * @param quantity The quantity to be set, must be positive
      * @return The resource object itself
      */
-    public Resource setQuantity(int quantity) {
-        if (quantity < 0) {
-            quantity = 0;
-        }
-        this.quantity = quantity;
-        return this;
-    }
-
-    /**
-     * @return type
-     */
-    public ResourceType getType() {
-        return type;
-    }
-
-    /**
-     * @param type The type to be set
-     * @return The resource object itself
-     */
-    public Resource setType(ResourceType type) {
-        this.type = type;
+    public Resource setQuantity(ResourceType type, int quantity) {
+        if (quantity < 0) quantity = 0;
+        resources.put(type, quantity);
         return this;
     }
 

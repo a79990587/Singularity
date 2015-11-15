@@ -19,20 +19,18 @@
  */
 package org.infinitystudio.singularity.block.machine;
 
-import org.infinitystudio.singularity.block.SingularityBaseMachine;
-import org.infinitystudio.singularity.block.SingularityMaterial;
+import org.infinitystudio.singularity.api.block.SingularityBaseMachine;
+import org.infinitystudio.singularity.api.SingularityMaterial;
 
 
 /**
  * @author Lasm_Gratel
  */
 public class BlockComputer extends SingularityBaseMachine {
-
     /**
      * The constructor of BlockComputer.
      */
     public BlockComputer() {
-        super(SingularityMaterial.machine);
+        super(SingularityMaterial.machine, "blockComputer");
     }
-
 }

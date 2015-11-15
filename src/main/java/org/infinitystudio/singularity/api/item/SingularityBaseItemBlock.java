@@ -17,27 +17,23 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.block;
+package org.infinitystudio.singularity.api.item;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import org.infinitystudio.singularity.SingularityCreativeTabs;
+import net.minecraft.item.ItemBlock;
+import org.infinitystudio.singularity.api.block.SingularityBaseBlock;
 
 /**
- * Singularity Base Block.
+ * Singularity Base ItemBlock.
  *
  * @author Lasm_Gratel
  */
-public class SingularityBaseBlock extends Block {
+public class SingularityBaseItemBlock extends ItemBlock {
 
     /**
-     * @param material Material of this block
+     * @param block
      */
-    public SingularityBaseBlock(Material material) {
-        super(material);
-        char[] name = getClass().getName().toCharArray();
-        name[0] = 'b';
-        setUnlocalizedName(String.valueOf(name));
-        setCreativeTab(SingularityCreativeTabs.tabSingularity);
+    public SingularityBaseItemBlock(SingularityBaseBlock block) {
+        super(block);
     }
+
 }

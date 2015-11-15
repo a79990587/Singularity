@@ -23,17 +23,22 @@ package org.infinitystudio.singularity.tile.machine;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
-import org.infinitystudio.singularity.tile.SingularityBaseInventory;
+import org.infinitystudio.singularity.api.resource.Resource;
+import org.infinitystudio.singularity.api.tile.SingularityBaseMachineTile;
 
 /**
  * @author Lasm_Gratel
  */
-public class TileTechnologyBench extends SingularityBaseInventory {
+public class TileTechnologyBench extends SingularityBaseMachineTile {
 
     private final byte LIMIT = 1;
     private final String NAME = "tileTechnologyBench";
     private ItemStack[] inventory = new ItemStack[6];
-    private boolean isWorking = false;
+    private Resource resourceUsage;
+
+    public TileTechnologyBench() {
+        resourceUsage = new Resource(null, null);
+    }
 
     /**
      * Returns the number of slots in the inventory.
@@ -52,6 +57,7 @@ public class TileTechnologyBench extends SingularityBaseInventory {
 
     @Override
     public ItemStack decrStackSize(int index, int count) {
+        // TODO: Change the resourceUsage by checking Recipe list.
         return inventory[index].splitStack(count);
     }
 
@@ -63,6 +69,7 @@ public class TileTechnologyBench extends SingularityBaseInventory {
     @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
         inventory[index] = stack;
+        // TODO: Change the resourceUsage by checking Recipe list.
     }
 
     @Override
@@ -88,7 +95,7 @@ public class TileTechnologyBench extends SingularityBaseInventory {
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
         if (index != inventory.length + 1) {
-            return isWorking;
+            return getRunningState();
         } else {
             return false;
         }
@@ -127,5 +134,10 @@ public class TileTechnologyBench extends SingularityBaseInventory {
     @Override
     public IChatComponent getDisplayName() {
         return null;
+    }
+
+    @Override
+    public Resource getResourceUsage() {
+        return resourceUsage;
     }
 }

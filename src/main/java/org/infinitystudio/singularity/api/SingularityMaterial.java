@@ -17,13 +17,24 @@
  *
  * @license GPLv3
  */
-package org.infinitystudio.singularity.tile;
+package org.infinitystudio.singularity.api;
 
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 
 /**
  * @author Lasm_Gratel
  */
-public class SingularityBaseTileEntity extends TileEntity {
+public class SingularityMaterial extends Material {
+
+    public static final Material elder = new Material(MapColor.obsidianColor);
+    public static final Material construct = new Material(MapColor.goldColor);
+    public static final Material machine = new Material(MapColor.blueColor);
+    public static final Material abyss = new Material(MapColor.blackColor);
+    public static final Material source = new Material(MapColor.iceColor);
+    
+    public SingularityMaterial(MapColor color) {
+        super(color);
+    }
 
 }
