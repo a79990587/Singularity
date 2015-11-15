@@ -34,7 +34,7 @@ public class BlockTechnologyBench extends SingularityBaseMachine {
      * The constructor of BlockTechnologyBench
      */
     public BlockTechnologyBench() {
-        super(SingularityMaterial.machine);
+        super(SingularityMaterial.machine, "blockTechnologyBench");
     }
 
 }

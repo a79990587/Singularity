@@ -8,6 +8,6 @@ import org.infinitystudio.singularity.api.SingularityMaterial;
  */
 public class BlockBasicLabWall extends SingularityBaseBlock {
     public BlockBasicLabWall() {
-        super(SingularityMaterial.elder);
+        super(SingularityMaterial.elder, "blockBasicLabWall");
     }
 }

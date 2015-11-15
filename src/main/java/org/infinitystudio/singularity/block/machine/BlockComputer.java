@@ -31,6 +31,6 @@ public class BlockComputer extends SingularityBaseMachine {
      * The constructor of BlockComputer.
      */
     public BlockComputer() {
-        super(SingularityMaterial.machine);
+        super(SingularityMaterial.machine, "blockComputer");
     }
 }
