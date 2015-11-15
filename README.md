@@ -1,2 +1,2 @@
 # InfinityStudioSingularity
-
+Continuous Integration: [![Build Status](https://drone.io/github.com/InfinityStudioSingularity/Singularity/status.png)](https://drone.io/github.com/InfinityStudioSingularity/Singularity/latest)
