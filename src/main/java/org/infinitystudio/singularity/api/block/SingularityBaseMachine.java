@@ -33,7 +33,7 @@ public abstract class SingularityBaseMachine extends SingularityBaseBlock {
      * @param material The material.
      */
     public SingularityBaseMachine(Material material, String name) {
-        super(material, name);
+        super(material);
     }
 
 }

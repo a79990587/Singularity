@@ -7,6 +7,6 @@ import org.infinitystudio.singularity.api.item.SingularityBaseItem;
  */
 public class ItemComputerCoprocessor extends SingularityBaseItem {
     public ItemComputerCoprocessor() {
-
+	
     }
 }

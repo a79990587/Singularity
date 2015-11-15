@@ -20,8 +20,8 @@
 package org.infinitystudio.singularity.block.fluid;
 
 import org.infinitystudio.singularity.SingularityHandlers;
+import org.infinitystudio.singularity.api.SingularityMaterial;
 import org.infinitystudio.singularity.block.SingularityBaseBlockFluid;
-import org.infinitystudio.singularity.block.SingularityMaterial;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;

@@ -7,9 +7,11 @@ import org.infinitystudio.singularity.SingularityCreativeTabs;
  * @author Blealtan
  */
 public abstract class SingularityBaseItem extends Item {
-    public SingularityBaseItem(String name) {
+    public SingularityBaseItem() {
         super();
-        setUnlocalizedName(String.valueOf(name));
+        char[] name2=getClass().getName().toCharArray();
+        name2[0]='b';
+        setUnlocalizedName(String.copyValueOf(name2));
         setCreativeTab(SingularityCreativeTabs.tabSingularity);
     }
 }

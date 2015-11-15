@@ -20,11 +20,19 @@
 package org.infinitystudio.singularity.biome;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenRiver;
 
 /**
  * @author Lasm_Gratel
  *
  */
-public class BiomeGenAbyss extends BiomeGenBase {
+public class BiomeGenAbyss extends BiomeGenRiver {
+
+    /**
+     * @param p_i1971_1_
+     */
+    public BiomeGenAbyss(int p_i1971_1_) {
+	super(p_i1971_1_);
+    }
 
 }

@@ -33,9 +33,11 @@ public class SingularityBaseBlock extends Block {
     /**
      * @param material Material of this block
      */
-    public SingularityBaseBlock(Material material, String name) {
+    public SingularityBaseBlock(Material material) {
         super(material);
-        setUnlocalizedName(name);
+        char[] name2=getClass().getName().toCharArray();
+        name2[0]='b';
+        setUnlocalizedName(String.copyValueOf(name2));
         setCreativeTab(SingularityCreativeTabs.tabSingularity);
     }
 }

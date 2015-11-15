@@ -7,7 +7,6 @@ import net.minecraft.util.IChatComponent;
 import org.infinitystudio.singularity.api.resource.Resource;
 import org.infinitystudio.singularity.api.tile.SingularityBaseMachineTile;
 import org.infinitystudio.singularity.item.ItemComputerCoprocessor;
-import org.infinitystudio.singularity.tile.SingularityBaseTileEntity;
 
 /**
  * @author Blealtan
