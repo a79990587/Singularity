@@ -55,7 +55,7 @@ public class SingularityRegistry extends GameRegistry {
     }
     
     /**
-     * Register an item with the item registry with a custom name : this allows for easier server->client resolution
+     * Register an item with the item registry with a custom name : this allows for easier server to client resolution
      *
      * @param item The item to register
      * @param name The mod-unique name of the item
