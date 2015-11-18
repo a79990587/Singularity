@@ -39,7 +39,10 @@ public class CommonProxy {
      */
     public void preInit(FMLPreInitializationEvent event) {
         Singularity.logger = event.getModLog();
-        // TODO Pre Init Event.
+        SingularityHandlers.registerBlocks();
+        SingularityHandlers.registerItems();
+        SingularityHandlers.registerRecipes();
+        // TODO: PreInit Event.
     }
 
     /**
@@ -48,9 +51,7 @@ public class CommonProxy {
      * @param event FMLInitializationEvent
      */
     public void init(FMLInitializationEvent event) {
-        SingularityHandlers.registerBlocks();
-        SingularityHandlers.registerItems();
-        SingularityHandlers.registerRecipes();
+        // TODO: Init Event.
     }
 
     /**
@@ -59,6 +60,6 @@ public class CommonProxy {
      * @param event FMLPostInitializationEvent
      */
     public void postInit(FMLPostInitializationEvent event) {
-        // TODO PostInit Event.
+        // TODO: PostInit Event.
     }
 }
